@@ -82,6 +82,7 @@ DATABASES = {
         'NAME': 'talk_data',
         'USER': 'admin',
         'PASSWORD': 'admin@talk',
+        'HOST':'localhost'
         
     }
 }
