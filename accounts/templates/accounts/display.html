@@ -1,0 +1,544 @@
+
+<html>
+ <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head> 
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style type="text/css">
+ 
+.GFG {
+            background-color: white;
+            border: 2px solid black;
+            color: green;
+            padding: 5px 5px;
+            text-align: center;
+            display: inline-block;
+            font-size: 15px;
+            margin: 5px 5px;
+            cursor: pointer;
+            text-decoration:none;
+        }
+.lol{
+    background-color: green;
+}
+
+.Row {
+    display: table;
+    width: 60%; /*Optional*/
+    table-layout: fixed; /*Optional*/
+    border-spacing: 10px; /*Optional*/
+    padding-left: 15px;
+}
+.Column {
+    display: table-cell;
+  
+}
+
+
+</style>
+
+
+
+<div class="float-container">
+
+  <div style="width:20%;float: left;padding: 5px;">
+   <a href="https://spaced-data-center.herokuapp.com/accounts/display_count" class="btn btn-primary">Main Menu</a> 
+
+  </div>
+  
+  <div style="width:50%;float: left;padding: 5px;">
+    <h3><center>{{title}}</center></h3>
+
+
+  </div>
+  
+</div>
+
+<br>
+<br>
+
+
+<br>
+<div style="padding-left: 15px;">
+<b><span style="color:black">Order of CSV file should be 
+{% if display_column %}
+{{display_column}}
+{% else %}
+{{columns}}
+{% endif %}</span><br></b>
+<span style="color:green">To export all data on the page, click Export CSV with no rows marked</span>
+</div>
+{{ses_var}}
+<br>
+<!-- Upload csv file-->
+<div>
+<div>
+      <form  method="POST" enctype="multipart/form-data">{% csrf_token %}
+        <div class="file-field input-field">
+        <div class="btn">
+        <b><span>Upload a CSV FILE: </span></b>
+        <input type="file" name="file">
+        </div>
+        <button  name="csv_upload" type="submit">Upload</button>
+        <button onclick="return confirm('Are you sure to delete?')" name="csv_delete" type="submit">Delete</button>
+        <button  name="export_all" type="submit">Export all</button>
+        {%if title == 'Digital Marketing Linkedin (L) Ads' or title == 'Blockchain Linkedin (L) Ads' or title == 'Data Analysis Linkedin (L) Ads' or title == 'Venture Funding Linkedin (L) Ads' or title == 'UI & UX Design Linkedin (L) Ads' or  title == 'Software Development Linkedin (L) Ads' or title == 'Product/Market fit Linkedin (L) Ads' or title == 'Venture Capital Linkedin (L) Ads' or title == 'Angel Investor Linkedin (L) Ads' or title == 'Seed Capital Linkedin (L) Ads' or title == 'Fundraising Linkedin (L) Ads' or title == 'Private Investor Linkedin (L) Ads' or title == '3d Design Linkedin (L) Ads' or title == 'Graphic Design Linkedin (L) Ads' or title == 'Visual Design Linkedin (L) Ads' or title == 'Marketing Designer Linkedin (L) Ads' or title == 'Branding Consultant Linkedin (L) Ads' or title == 'Artificial Intelligence Linkedin (L) Ads'  or title == 'Machine Learning Linkedin (L) Ads' or title == 'Algorithms Linkedin (L) Ads'  or title == 'Data Mining Linkedin (L) Ads' or title == 'Neural Networks Linkedin (L) Ads' or title == 'Data Prediction Linkedin (L) Ads' or title == 'Figma Linkedin (L) Ads' or title == 'Miro Linkedin (L) Ads' or title == 'Notion Linkedin (L) Ads' or title == 'Slack Linkedin (L) Ads' or title == 'Trello Linkedin (L) Ads' or title == 'Brand Designers Linkedin (L) Ads' or title == 'Data Scientist Linkedin (L) Ads' or title == 'NFT Linkedin (L) Ads' or title == 'DeFi Linkedin (L) Ads' or title == 'DAPP Linkedin (L) Ads' or title == 'DAO Linkedin (L) Ads' or title == 'Yield Farming Linkedin (L) Ads' or title == 'Community Moderator Linkedin (L) Ads' or  title == 'Community Building Linkedin (L) Ads' or title == 'Community Management Linkedin (L) Ads' or title == 'Discord Community Linkedin (L) Ads' or title == 'Entrepreneurs Linkedin (L) Ads' or title == 'Founders Linkedin (L) Ads' or title == 'Web Development Linkedin (L) Ads' or title == 'Mobile Development Linkedin (L) Ads' or title == 'Algorithms Facebook Ads' or title == 'Venture Capital Facebook Ads' or title == 'Angel Investor Facebook Ads' or title == 'Pitchdeck Facebook Ads' or title == 'Private Investor Facebook Ads' or title == 'Business Angel Facebook Ads' or title == '3d Design Facebook Ads' or title == 'Graphic Design Facebook Ads' or title == 'Artificial Intelligence Facebook Ads'  or title == 'Machine Learning Facebook Ads'  or title == 'Data Mining Facebook Ads' or title == 'Neural Networks Facebook Ads' or title == 'Digital Marketing Facebook Ads' or title == 'Blockchain Facebook Ads' or title == 'Software Development Facebook Ads' or title == 'Data Analysis Facebook Ads' or title == 'UX & UI Design Facebook Ads' or title == 'Entrepreneurs Facebook Ads' or title == '3d Animation Facebook Ads' %}
+        <button  name="export_all_ads" type="submit">Export All Ads</button>
+        {% endif %}
+
+        <span id="msg" style="color:green;padding-left: 20px;">
+        {{msg}}</span>
+
+       
+
+        </div>
+
+   
+        </form>  
+
+</div>
+
+
+</div>
+
+<br> 
+
+
+
+<div class="Row">
+    <div class="Column"><b>Showing {{start_index}} to {{end_index}} of {{total}} entries  </b> </div>
+    <div class="Column">
+           <form name="no_result" method="get">
+    <select name="num" id="num">
+      <option  {% if  end_index  == 10 %}selected{% endif %} value="10">10</option>
+      <option  {% if  end_index  == 50 %}selected{% endif %} value="50">50</option>
+      <option {% if  end_index  == 100 %}selected{% endif %} value="100">100</option>
+      <option  {% if  end_index  == 500 %}selected{% endif %} value="500">500</option>
+    </select>
+    Results
+    <input type="submit" value="Show" name="no_result">
+    </form>
+
+
+
+    </div>
+    <div class="Column">
+        <form method="GET" >
+    
+        <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Search Here...">
+       <button  type="submit" name="action">Search</button>
+
+        </form>
+    </div>
+</div>
+
+ <table border="1" class="table">
+                <thead>
+                   <!--Header-->
+
+                        <tr>
+                       
+                        {% if merge %}
+                        <th>Actions</th>
+                        <th>Contact</th>
+                        <th>Update</th>
+                        {% for heading in columns %}
+                          <th>{{ heading }} </th>
+                        {% endfor %}
+                        {% elif title == 'Entrepreneurs Linkedin Group' or title == 'Linkedin LIX' or title == 'Linkedin Search' or title == 'Facebook' or title == 'Instagram' or title == 'Entrepreneurs Linkedin (L)' or title == 'Founders Linkedin (L)' or title == 'Scaleup' or title == 'Discord (Blank Foundation)' or title == 'Discord (Wonderverse)' or title == 'Web Development' or title == 'Web Development Linkedin (P)' or title == 'Data Scientist Linkedin (P)' or title == 'NFT Linkedin (P)' or title == 'DeFi Linkedin (P)' or title == 'DAPP Linkedin (P)' or title == 'DAO Linkedin (P)' or title == 'Yield Farming Linkedin (P)' or title == 'Data Scientist Linkedin (L)' or title == 'NFT Linkedin (L)' or title == 'DeFi Linkedin (L)' or title == 'DAPP Linkedin (L)' or title == 'DAO Linkedin (L)' or title == 'Yield Farming Linkedin (L)' or title == 'Mobile Development' or title == 'Mobile Development Linkedin (P)' or title == 'Community Moderator Linkedin (P)' or title == 'Community Building Linkedin (P)' or title == 'Community Management Linkedin (P)' or title == 'Discord Community Linkedin (P)' or title == 'Community Moderator Linkedin (L)' or title == 'Community Building Linkedin (L)' or title == 'Community Management Linkedin (L)' or title == 'Discord Community Linkedin (L)' or title == 'Entrepreneurs Linkedin (P)' or title == 'Founders Linkedin (P)' or title == 'Digital Marketing Linkedin (L)' or title == 'Blockchain Linkedin (L)' or title == 'Data Analysis Linkedin (L)' or title == 'Venture Funding Linkedin (L)' or title == 'Software Development Linkedin (L)' or title == 'Product/Market fit Linkedin (L)' or title == 'UI & UX Design Linkedin (L)' or title == 'Software Development Linkedin (P)' or title == 'Blockchain Linkedin (P)' or title == 'Digital Marketing Linkedin (P)' or title == 'Data Analysis Linkedin (P)' or title == 'Venture Funding Linkedin (P)' or title == 'UI & UX Design Linkedin (P)' or title == 'Product/Market fit Linkedin (P)' or title == 'Venture Capital Linkedin (L)' or title == 'Angel Investor Linkedin (L)' or title == 'Seed Capital Linkedin (L)' or title == 'Fundraising Linkedin (L)' or title == 'Private Investor Linkedin (L)' or title == 'Venture Capital Linkedin (P)' or title == 'Angel Investor Linkedin (P)' or title == 'Seed Capital Linkedin (P)' or title == 'Fundraising Linkedin (P)' or title == 'Private Investor Linkedin (P)' or title == 'Venture Capital Facebook' or title == 'Angel Investor Facebook' or title == 'Pitchdeck Facebook' or title == 'Private Investor Facebook' or title == 'Business Angel Facebook' or title == '3d Design Facebook' or title == 'Graphic Design Facebook' or title == '3d Design Linkedin (L)' or title == 'Graphic Design Linkedin (L)' or title == 'Visual Design Linkedin (L)' or title == 'Marketing Designer Linkedin (L)' or title == 'Branding Consultant Linkedin (L)' or title == '3d Design Linkedin (P)' or title == 'Graphic Design Linkedin (P)' or title == 'Visual Design Linkedin (P)' or title == 'Marketing Designer Linkedin (P)' or title == 'Branding Consultant Linkedin (P)' or title == 'Artificial Intelligence Linkedin (L)'  or title == 'Machine Learning Linkedin (L)' or title == 'Algorithms Linkedin (L)'  or title == 'Data Mining Linkedin (L)' or title == 'Neural Networks Linkedin (L)' or title == 'Data Prediction Linkedin (L)' or title == 'Artificial Intelligence Linkedin (P)'  or title == 'Machine Learning Linkedin (P)' or title == 'Algorithms Linkedin (P)'  or title == 'Data Mining Linkedin (P)' or title == 'Neural Networks Linkedin (P)' or title == 'Data Prediction Linkedin (P)' or title == 'Artificial Intelligence Facebook'  or title == 'Machine Learning Facebook' or title == 'Algorithms Facebook'  or title == 'Data Mining Facebook' or title == 'Neural Networks Facebook' or title == 'Digital Marketing Facebook' or title == 'Blockchain Facebook' or title == 'Software Development Facebook' or title == 'Data Analysis Facebook' or title == 'UX/UI Design Facebook' or title == 'Entrepreneurs Facebook' or title == 'UI & UX Design Instagram' or title == 'Entrepreneurs Instagram'  or title == 'Digital Marketing Instagram' or title == 'Figma Linkedin (L)' or title == 'Miro Linkedin (L)' or title == 'Notion Linkedin (L)' or title == 'Slack Linkedin (L)' or title == 'Trello Linkedin (L)' or title == 'MentorPass Instagram' or title == 'MicroMentor Instagram' or title == 'Figma Linkedin (P)' or title == 'Notion Linkedin (P)' or title == 'Slack Linkedin (P)' or title == 'Trello Linkedin (P)' or title == 'Brand Designers Linkedin (P)' or title == 'Brand Designers Linkedin (L)' or title == 'Digital Marketing Linkedin (L) Ads' or title == 'Blockchain Linkedin (L) Ads' or title == 'Data Analysis Linkedin (L) Ads' or title == 'Venture Funding Linkedin (L) Ads' or title == 'UI & UX Design Linkedin (L) Ads' or  title == 'Software Development Linkedin (L) Ads' or title == 'Product/Market fit Linkedin (L) Ads' or title == 'Venture Capital Linkedin (L) Ads' or title == 'Angel Investor Linkedin (L) Ads' or title == 'Seed Capital Linkedin (L) Ads' or title == 'Fundraising Linkedin (L) Ads' or title == 'Private Investor Linkedin (L) Ads' or title == '3d Design Linkedin (L) Ads' or title == 'Graphic Design Linkedin (L) Ads' or title == 'Visual Design Linkedin (L) Ads' or title == 'Marketing Designer Linkedin (L) Ads' or title == 'Branding Consultant Linkedin (L) Ads' or title == 'Artificial Intelligence Linkedin (L) Ads'  or title == 'Machine Learning Linkedin (L) Ads' or title == 'Algorithms Linkedin (L) Ads'  or title == 'Data Mining Linkedin (L) Ads' or title == 'Neural Networks Linkedin (L) Ads' or title == 'Data Prediction Linkedin (L) Ads' or title == 'Figma Linkedin (L) Ads' or title == 'Miro Linkedin (L) Ads' or title == 'Notion Linkedin (L) Ads' or title == 'Slack Linkedin (L) Ads' or title == 'Trello Linkedin (L) Ads' or title == 'Brand Designers Linkedin (L) Ads' or title == 'Data Scientist Linkedin (L) Ads' or title == 'NFT Linkedin (L) Ads' or title == 'DeFi Linkedin (L) Ads' or title == 'DAPP Linkedin (L) Ads' or title == 'DAO Linkedin (L) Ads' or title == 'Yield Farming Linkedin (L) Ads' or title == 'Community Moderator Linkedin (L) Ads' or  title == 'Community Building Linkedin (L) Ads' or title == 'Community Management Linkedin (L) Ads' or title == 'Discord Community Linkedin (L) Ads' or title == 'Entrepreneurs Linkedin (L) Ads' or title == 'Founders Linkedin (L) Ads' or title == 'Web Development Linkedin (L) Ads' or title == 'Mobile Development Linkedin (L) Ads' or title == 'Web Development Linkedin (P) Ads' or title == 'Software Development Linkedin (P) Ads' or title == 'Mobile Development Linkedin (P) Ads' or title == 'Blockchain Linkedin (P) Ads' or title == 'Digital Marketing Linkedin (P) Ads' or title == 'Data Analysis Linkedin (P) Ads' or title == 'UI & UX Design Linkedin (P) Ads' or title == 'Product/Market fit Linkedin (P) Ads' or title == 'Venture Capital Linkedin (P) Ads' or title == 'Angel Investor Linkedin (P) Ads' or title == 'Seed Capital Linkedin (P) Ads' or title == 'Fundraising Linkedin (P) Ads' or title == 'Private Investor Linkedin (P) Ads' or title == '3d Design Linkedin (P) Ads' or title == 'Graphic Design Linkedin (P) Ads' or title == 'Visual Design Linkedin (P) Ads' or title == 'Marketing Designer Linkedin (P) Ads' or title == 'Branding Consultant Linkedin (P) Ads' or title == 'Artificial Intelligence Linkedin (P) Ads'  or title == 'Machine Learning Linkedin (P) Ads' or title == 'Algorithms Linkedin (P) Ads'  or title == 'Data Mining Linkedin (P) Ads' or title == 'Neural Networks Linkedin (P) Ads' or title == 'Data Prediction Linkedin (P) Ads' or title == 'Figma Linkedin (P) Ads' or title == 'Notion Linkedin (P) Ads' or title == 'Slack Linkedin (P) Ads' or title == 'Trello Linkedin (P) Ads' or title == 'Brand Designers Linkedin (P) Ads' or title == 'Data Scientist Linkedin (P) Ads' or title == 'NFT Linkedin (P) Ads' or title == 'DeFi Linkedin (P) Ads' or title == 'DAPP Linkedin (P) Ads' or title == 'DAO Linkedin (P) Ads' or title == 'Yield Farming Linkedin (P) Ads' or title == 'Community Moderator Linkedin (P) Ads' or title == 'Community Building Linkedin (P) Ads' or title == 'Community Management Linkedin (P) Ads' or title == 'Discord Community Linkedin (P) Ads' or title == 'Community Building Twitter Ads' or title == 'Community Growth Twitter Ads' or title == 'Community Management Twitter Ads' or title == 'Twitter Marketing Twitter Ads' or title == 'Web3 Community Twitter Ads' or title == 'Web3 Marketing Twitter Ads' or title == 'Discord Bots Twitter Ads' or title == 'Chat Bots Twitter Ads' or title == 'Venture Capital Twitter Ads' or title == 'Seed Capital Twitter Ads' or title == 'Web3 Fund Twitter Ads' or title == 'Web3 Grants Twitter Ads' or title == 'Fundraising Twitter Ads' or title == 'Whitepaper Twitter Ads' or title == 'Pitchdeck Twitter Ads' or title == 'Private Investor Twitter Ads' or title == 'Business Angel Twitter Ads' or title == 'Web3 Investor Twitter Ads' or title == '3d Design Twitter Ads' or title == 'Graphic Design Twitter Ads' or title == 'Visual Design Twitter Ads' or title == 'Marketing Designer Twitter Ads' or title == 'Branding Consultant Twitter Ads' or title == 'Artificial Intelligence Twitter Ads'  or title == 'Machine Learning Twitter Ads' or title == 'Algorithms Twitter Ads'  or title == 'Data Mining Twitter Ads' or title == 'Neural Networks Twitter Ads' or title == 'Data Prediction Twitter Ads' or title == 'Digital Marketing Twitter Ads' or title == 'Entrepreneurs Twitter Ads'  or title == 'UI & UX Design Twitter Ads'  or title == 'Figma Twitter Ads' or title == 'Onalytica Twitter Ads' or title == 'Slack Twitter Ads' or title == 'Trello Twitter Ads'  or title == 'Miro Twitter Ads'  or title == 'Notion Twitter Ads'  or title == 'MicroMentor Twitter Ads'  or title == 'MentorPass Twitter Ads' or title == 'Venture Capital Facebook Ads' or title == 'Angel Investor Facebook Ads' or title == 'Pitchdeck Facebook Ads' or title == 'Private Investor Facebook Ads' or title == 'Business Angel Facebook Ads' or title == '3d Design Facebook Ads' or title == 'Graphic Design Facebook Ads' or title == 'Artificial Intelligence Facebook Ads'  or title == 'Machine Learning Facebook Ads' or title == 'Algorithms Facebook Ads'  or title == 'Data Mining Facebook Ads' or title == 'Neural Networks Facebook Ads' or title == 'Digital Marketing Facebook Ads' or title == 'Blockchain Facebook Ads' or title == 'Software Development Facebook Ads' or title == 'Data Analysis Facebook Ads' or title == 'UX & UI Design Facebook Ads' or title == 'Entrepreneurs Facebook Ads' or title == 'Enterpreneurs Twitter Ads' or title == 'Angel Investor Twitter Ads' or title == 'Entrepreneurs Linkedin (P) Ads' or title == 'Founders Linkedin (P) Ads' or title == 'Entrepreneurs Instagram Ads' or title == 'MentorPass Instagram Ads' or title == 'MicroMentor Instagram Ads' or title == 'UI & UX Design Instagram Ads' or title == 'Digital Marketing Instagram Ads' or title == 'Web Development Linkedin (L)' or title == 'Software Development Linkedin (L)' or title == 'Mobile Development Linkedin (L)' or title == 'DeFi Twitter Ads'  or title == 'CEO Linkedin (L)' or title == 'CIO Linkedin (L)' or title == 'COO Linkedin (L)' or title == 'CTO Linkedin (L)' or title == 'Director of Operation Linkedin (L)' or title == 'Growth of Manager Linkedin (L)' or title == 'Head of Marketing Linkedin (L)' or title == 'Head of Sales Linkedin (L)' or title == 'Marketing Director Linkedin (L)'  or title == 'CEO Linkedin (L) Ads' or title == 'CIO Linkedin (L) Ads' or title == 'COO Linkedin (L) Ads' or title == 'CTO Linkedin (L) Ads' or title == 'Director of Operation Linkedin (L) Ads' or title == 'Growth of Manager Linkedin (L) Ads' or title == 'Head of Marketing Linkedin (L) Ads' or title == 'Head of Sales Linkedin (L) Ads' or title == 'Marketing Director Linkedin (L) Ads' or title == '3D Animation Linkedin (L)' or title == '3D Content Linkedin (L)' or title == 'Adtech Linkedin (L)' or title == 'Blogging Linkedin (L)' or title == 'Content Distribution Linkedin (L)' or title == 'Conversion API Linkedin (L)' or title == 'Infographics Linkedin (L)' or title == 'Podcasting Linkedin (L)' or title == 'Presentations Linkedin (L)' or title == 'Slide Decks Linkedin (L)' or title == 'Social Media Posts Linkedin (L)' or title == 'Video Content  Linkedin (L)' or title == 'Visual Content Linkedin (L)' or title == '3D Animation Linkedin (L) Ads' or title == '3D Content Linkedin (L) Ads' or title == 'Adtech Linkedin (L) Ads' or title == 'Blogging Linkedin (L) Ads' or title == 'Content Distribution Linkedin (L) Ads' or title == 'Conversion API Linkedin (L) Ads' or title == 'Infographics Linkedin (L) Ads' or title == 'Podcasting Linkedin (L) Ads' or title == 'Presentations Linkedin (L) Ads' or title == 'Slide Decks Linkedin (L) Ads' or title == 'Social Media Posts Linkedin (L) Ads' or title == 'Video Content  Linkedin (L) Ads' or title == 'Visual Content Linkedin (L) Ads' or title == '3d Animation Facebook Ads' or title == '3d Animation Facebook' or title == '3d Modeling Facebook' or title == 'Blogging Facebook' or title == 'Content Marketing Facebook' or title == 'Email Marketing Facebook' or title == 'Figma Design Facebook' or title == 'Graphic Design Facebook' or title == 'Infographics Facebook' or title == 'Instagram Marketing Facebook' or title == 'Marketing Videos Facebook' or title == 'Poadcasting Facebook' or title == 'Social Media Marketing Facebook' or title == 'Tiktok Marketing Facebook' or title == 'Video Marketing Facebook' or title == 'Youtube Marketing Facebook' or title == '3d Animation Facebook Ads' or title == '3d Modeling Facebook Ads' or title == 'Blogging Facebook Ads' or title == 'Content Marketing Facebook Ads' or title == 'Email Marketing Facebook Ads' or title == 'Figma Design Facebook Ads' or title == 'Graphic Design Facebook Ads' or title == 'Infographics Facebook Ads' or title == 'Instagram Marketing Facebook Ads' or title == 'Marketing Videos Facebook Ads' or title == 'Poadcasting Facebook Ads' or title == 'Social Media Marketing Facebook Ads' or title == 'Tiktok Marketing Facebook Ads' or title == 'Video Marketing Facebook Ads' or title == 'Youtube Marketing Facebook Ads'%}
+                        <th>Actions</th>
+                        <th>Contact</th>
+                         {% for heading in columns %}
+                          <th>{{ heading }} </th>
+                          {% endfor %}
+
+                        {% elif title == 'Twitter' or title == 'Community Building Twitter' or title == 'Community Growth Twitter' or title == 'Community Management Twitter' or title == 'Twitter Marketing' or title == 'Web3 Community Twitter' or title == 'Web3 Marketing Twitter' or title == 'Discord Bots Twitter' or title == 'Chat Bots Twitter' or title == 'Venture Capital Twitter' or title == 'Angel Investor Twitter' or title == 'Seed Capital Twitter' or title == 'Web3 Fund Twitter' or title == 'Web3 Grants Twitter' or title == 'Fundraising Twitter' or title == 'Whitepaper Twitter' or title == 'Pitchdeck Twitter' or title == 'Private Investor Twitter' or title == 'Business Angel Twitter' or title == 'Web3 Investor Twitter' or title == '3d Design Twitter' or title == 'Graphic Design Twitter' or title == 'Visual Design Twitter' or title == 'Marketing Designer Twitter' or title == 'Branding Consultant Twitter' or title == 'Artificial Intelligence Twitter'  or title == 'Machine Learning Twitter' or title == 'Algorithms Twitter'  or title == 'Data Mining Twitter' or title == 'Neural Networks Twitter' or title == 'Data Prediction Twitter'  or title == 'Digital Marketing Twitter' or title == 'Entrepreneurs Twitter' or title == 'UI & UX Design Twitter' or title == 'Figma Twitter' or title == 'Onalytica Twitter' or title == 'Slack Twitter' or title == 'Trello Twitter'  or title == 'Miro Twitter'  or title == 'Notion Twitter'  or title == 'MicroMentor Twitter'  or title == 'MentorPass Twitter' or title == 'DeFi Twitter'%}
+                        <th>Actions</th>
+                        <th>Contact</th>
+                         {% for heading in columns %}
+                            {% if heading != 'Followers Count'%}
+                             <th>{{ heading }} </th>
+                            {%else%}
+                            <form name="no_result" method="get">
+                            <th>Followers Count <input type="submit" value="&#9650;" name="ass"> <input type="submit" value="&#9660;" name="dec"> </th>
+                            </form>
+                            {% endif %}
+                          {% endfor %}
+
+                        {% endif %}
+
+
+                        </tr>
+                    <!--Header End-->
+
+                    <!--SEARCH-->
+            <form method="get" id="search" name="search">
+
+            <tr>
+                <td>
+               
+               <input type="hidden" value={{start_index}} name="start_index">
+               <input type="hidden" value={{end_index}} name="end_index">
+                <input  onclick="return confirm('Are you sure to Export CSV?')" name="csv_export" value="Export CSV" type="submit">
+                <input type="submit" value="Delete" name="deleted">
+            </td> 
+            <td><input type="submit" value="Contacted" name="contact"><br>
+                <input type="submit" value="Pending" name="pending"><br>
+                <input type="submit" value="Unmark" name="uncontact">
+                </td>
+            
+                {% if merge %}
+                <td></td>
+                {% for heading in columns %}
+                  <td></td>
+               
+                {% endfor %}
+                {% else %}
+               
+                   {% for heading in columns %}
+                      <td></td>
+                   
+                    {% endfor %}
+                {% endif %}
+
+
+   </tr> 
+
+<!--End of Search-->
+
+                </thead>
+                <tbody>
+                    {% for emp_list in topic %}
+                    {% if title == 'Entrepreneurs Linkedin Group' %}
+                    <tr style="background-color:{% if emp_list.contact == 1 %}#F0FFF0 {% elif emp_list.contact == 2%}#FFFFE0{% endif %};">
+                     <td> <input type="checkbox" name="inputs" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} />
+                    <td><input type="checkbox" name="ids" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} /></td>
+
+                     <td>{{emp_list.profileUrl}}</td>
+                     <td>{{emp_list.headline}}</td>
+                     <td>{{emp_list.fullName}}</td>
+                     <td>{{emp_list.query}}</td>
+                    </tr>
+                    {% elif title == 'Instagram' or title == 'UI & UX Design Instagram' or title == 'Entrepreneurs Instagram' or title == 'Digital Marketing Instagram'  or title == 'MentorPass Instagram' or title == 'MicroMentor Instagram' %}
+                    <tr style="background-color:{% if emp_list.contact == 1 %}#F0FFF0 {% elif emp_list.contact == 2%}#FFFFE0{% endif %};">
+                      
+                     <td> <input type="checkbox" name="inputs" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} />
+                  
+                    <td><input type="checkbox" name="ids" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} /></td>
+                     <td>{{emp_list.profileUrl}}</td>
+                     <td>{{emp_list.fullName}}</td>
+                     <td>{{emp_list.query}}</td>
+                     <td>{{emp_list.username}}</td>
+                    </tr>
+
+                    {% elif title == 'Discord (Blank Foundation)' %}
+                    <tr style="background-color:{% if emp_list.contact == 1 %}#F0FFF0 {% elif emp_list.contact == 2%}#FFFFE0{% endif %};">
+                      
+                     <td> <input type="checkbox" name="inputs" id="option{{emp_list.Row_idRow_id}}" value={{emp_list.Row_idRow_id}} />
+                  
+                    <td><input type="checkbox" name="ids" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} /></td>
+                     <td>{{emp_list.DiscordID}}</td>
+                     <td>{{emp_list.Author}}</td>
+                     <td>{{emp_list.Date1}}</td>
+                     <td>{{emp_list.Twitter}}</td>   
+                     <td>{{emp_list.Question1}}</td>
+                     <td>{{emp_list.Question3}}</td>
+
+                    </tr>
+
+                    {% elif title == 'Discord (Wonderverse)' %}
+                    <tr style="background-color:{% if emp_list.contact == 1 %}#F0FFF0 {% elif emp_list.contact == 2%}#FFFFE0{% endif %};">
+                      
+                     <td> <input type="checkbox" name="inputs" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} />
+                  
+                    <td><input type="checkbox" name="ids" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} /></td>
+                     <td>{{emp_list.AuthorID}}</td>
+                     <td>{{emp_list.Author}}</td>
+                     <td>{{emp_list.Date1}}</td>
+                     <td>{{emp_list.Content}}</td>   
+                     <td>{{emp_list.Attachments}}</td>
+                     <td>{{emp_list.Reactions}}</td>
+
+                    </tr>
+
+
+                    {% elif title == 'Linkedin LIX' or title == 'Digital Marketing' or title == 'Blockchain Linkedin (L)' or title == 'Data Analysis Linkedin (L)' or title == 'Venture Funding Linkedin (L)' or title == 'UI & UX Design Linkedin (L)' or  title == 'Software Development Linkedin (L)' or title == 'Product/Market fit Linkedin (L)' or title == 'Venture Capital Linkedin (L)' or title == 'Angel Investor Linkedin (L)' or title == 'Seed Capital Linkedin (L)' or title == 'Fundraising Linkedin (L)' or title == 'Private Investor Linkedin (L)' or title == '3d Design Linkedin (L)' or title == 'Graphic Design Linkedin (L)' or title == 'Visual Design Linkedin (L)' or title == 'Marketing Designer Linkedin (L)' or title == 'Branding Consultant Linkedin (L)' or title == 'Artificial Intelligence Linkedin (L)'  or title == 'Machine Learning Linkedin (L)' or title == 'Algorithms Linkedin (L)'  or title == 'Data Mining Linkedin (L)' or title == 'Neural Networks Linkedin (L)' or title == 'Data Prediction Linkedin (L)' or title == 'Figma Linkedin (L)' or title == 'Miro Linkedin (L)' or title == 'Notion Linkedin (L)' or title == 'Slack Linkedin (L)' or title == 'Trello Linkedin (L)' or title == 'Brand Designers Linkedin (L)' or title == 'Data Scientist Linkedin (L)' or title == 'NFT Linkedin (L)' or title == 'DeFi Linkedin (L)' or title == 'DAPP Linkedin (L)' or title == 'DAO Linkedin (L)' or title == 'Yield Farming Linkedin (L)' or title == 'Community Moderator Linkedin (L)' or  title == 'Community Building Linkedin (L)' or title == 'Community Management Linkedin (L)' or title == 'Discord Community Linkedin (L)' or title == 'Entrepreneurs Linkedin (L)' or title == 'Founders Linkedin (L)' or title == 'Web Development Linkedin (L)' or title == 'Mobile Development Linkedin (L)'  or title == 'Digital Marketing Linkedin (L)'  or title == 'CEO Linkedin (L)' or title == 'CIO Linkedin (L)' or title == 'COO Linkedin (L)' or title == 'CTO Linkedin (L)' or title == 'Director of Operation Linkedin (L)' or title == 'Growth of Manager Linkedin (L)' or title == 'Head of Marketing Linkedin (L)' or title == 'Head of Sales Linkedin (L)' or title == 'Marketing Director Linkedin (L)' or title == '3D Animation Linkedin (L)' or title == '3D Content Linkedin (L)' or title == 'Adtech Linkedin (L)' or title == 'Blogging Linkedin (L)' or title == 'Content Distribution Linkedin (L)' or title == 'Conversion API Linkedin (L)' or title == 'Infographics Linkedin (L)' or title == 'Podcasting Linkedin (L)' or title == 'Presentations Linkedin (L)' or title == 'Slide Decks Linkedin (L)' or title == 'Social Media Posts Linkedin (L)' or title == 'Video Content  Linkedin (L)' or title == 'Visual Content Linkedin (L)'%}
+                    <tr style="background-color:{% if emp_list.contact == 1 %}#F0FFF0 {% elif emp_list.contact == 2%}#FFFFE0{% endif %};">
+                     <td> <input type="checkbox" name="inputs" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} />
+                    <td><input type="checkbox" name="ids" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} /></td>
+                     <td>{{emp_list.Profile_Link}}</td>
+                     <td>{{emp_list.Category}}</td>
+                     <td>{{emp_list.Description}}</td>
+                     <td>{{emp_list.Experience_Title}}</td>
+                     <td>{{emp_list.LinkedIn_Name}}</td>
+                     <td>{{emp_list.Location}}</td>
+                    </tr>
+
+                     {% elif title == 'Digital Marketing Linkedin (L) Ads' or title == 'Blockchain Linkedin (L) Ads' or title == 'Data Analysis Linkedin (L) Ads' or title == 'Venture Funding Linkedin (L) Ads' or title == 'UI & UX Design Linkedin (L) Ads' or  title == 'Software Development Linkedin (L) Ads' or title == 'Product/Market fit Linkedin (L) Ads' or title == 'Venture Capital Linkedin (L) Ads' or title == 'Angel Investor Linkedin (L) Ads' or title == 'Seed Capital Linkedin (L) Ads' or title == 'Fundraising Linkedin (L) Ads' or title == 'Private Investor Linkedin (L) Ads' or title == '3d Design Linkedin (L) Ads' or title == 'Graphic Design Linkedin (L) Ads' or title == 'Visual Design Linkedin (L) Ads' or title == 'Marketing Designer Linkedin (L) Ads' or title == 'Branding Consultant Linkedin (L) Ads' or title == 'Artificial Intelligence Linkedin (L) Ads'  or title == 'Machine Learning Linkedin (L) Ads' or title == 'Algorithms Linkedin (L) Ads'  or title == 'Data Mining Linkedin (L) Ads' or title == 'Neural Networks Linkedin (L) Ads' or title == 'Data Prediction Linkedin (L) Ads' or title == 'Figma Linkedin (L) Ads' or title == 'Miro Linkedin (L) Ads' or title == 'Notion Linkedin (L) Ads' or title == 'Slack Linkedin (L) Ads' or title == 'Trello Linkedin (L) Ads' or title == 'Brand Designers Linkedin (L) Ads' or title == 'Data Scientist Linkedin (L) Ads' or title == 'NFT Linkedin (L) Ads' or title == 'DeFi Linkedin (L) Ads' or title == 'DAPP Linkedin (L) Ads' or title == 'DAO Linkedin (L) Ads' or title == 'Yield Farming Linkedin (L) Ads' or title == 'Community Moderator Linkedin (L) Ads' or  title == 'Community Building Linkedin (L) Ads' or title == 'Community Management Linkedin (L) Ads' or title == 'Discord Community Linkedin (L) Ads' or title == 'Entrepreneurs Linkedin (L) Ads' or title == 'Founders Linkedin (L) Ads' or title == 'Web Development Linkedin (L) Ads' or title == 'Mobile Development Linkedin (L) Ads' or title == 'CEO Linkedin (L) Ads' or title == 'CIO Linkedin (L) Ads' or title == 'COO Linkedin (L) Ads' or title == 'CTO Linkedin (L) Ads' or title == 'Director of Operation Linkedin (L) Ads' or title == 'Growth of Manager Linkedin (L) Ads' or title == 'Head of Marketing Linkedin (L) Ads' or title == 'Head of Sales Linkedin (L) Ads' or title == 'Marketing Director Linkedin (L) Ads' or title == '3D Animation Linkedin (L) Ads' or title == '3D Content Linkedin (L) Ads' or title == 'Adtech Linkedin (L) Ads' or title == 'Blogging Linkedin (L) Ads' or title == 'Content Distribution Linkedin (L) Ads' or title == 'Conversion API Linkedin (L) Ads' or title == 'Infographics Linkedin (L) Ads' or title == 'Podcasting Linkedin (L) Ads' or title == 'Presentations Linkedin (L) Ads' or title == 'Slide Decks Linkedin (L) Ads' or title == 'Social Media Posts Linkedin (L) Ads' or title == 'Video Content  Linkedin (L) Ads' or title == 'Visual Content Linkedin (L) Ads'%}
+                    <tr style="background-color:{% if emp_list.contact == 1 %}#F0FFF0 {% elif emp_list.contact == 2%}#FFFFE0{% endif %};">
+                     <td> <input type="checkbox" name="inputs" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} />
+                    <td><input type="checkbox" name="ids" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} /></td>
+                     <td>{{emp_list.First_Name}}</td>
+                     <td>{{emp_list.Last_Name}}</td>
+                     <td>{{emp_list.Description}}</td>
+                     <td>{{emp_list.Profile_Link}}</td>
+                     <td>{{emp_list.Email_id}}</td>
+                     <td>{{emp_list.Location}}</td>
+                     <td>{{emp_list.Category}}</td>
+                    </tr>
+
+
+
+
+                 {% elif title == 'Scaleup' %}
+                    <tr style="background-color:{% if emp_list.contact == 1 %}#F0FFF0 {% elif emp_list.contact == 2%}#FFFFE0{% endif %};">
+                     <td> <input type="checkbox" name="inputs" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} />
+                    <td><input type="checkbox" name="ids" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} /></td>
+                     <td>{{emp_list.Profile_Link}}</td>
+                     <td>{{emp_list.Category}}</td>
+                     <td>{{emp_list.Description}}</td>
+                     <td>{{emp_list.Experience_Title}}</td>
+                     <td>{{emp_list.LinkedIn_Name}}</td>
+                     <td>{{emp_list.Location}}</td>
+                    </tr>
+
+
+                    {% elif title == 'Linkedin Search' %}
+                    <tr style="background-color:{% if emp_list.contact == 1 %}#F0FFF0 {% elif emp_list.contact == 2%}#FFFFE0{% endif %};">
+                     <td> <input type="checkbox" name="inputs" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} />
+                    <td><input type="checkbox" name="ids" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} /></td>
+                     <td>{{emp_list.profileUrl}}</td>
+                     <td>{{emp_list.currentJob}}</td>
+                     <td>{{emp_list.job}}</td>
+                     <td>{{emp_list.Keyword}}</td>
+                     <td>{{emp_list.location}}</td>
+                     <td>{{emp_list.fullName}}</td>
+                    </tr>
+
+
+                    {% elif title == 'Web Development Linkedin (P)' or title == 'Software Development Linkedin (P)' or title == 'Mobile Development Linkedin (P)' or title == 'Blockchain Linkedin (P)' or title == 'Digital Marketing Linkedin (P)' or title == 'Data Analysis Linkedin (P)' or title == 'Venture Funding Linkedin (P)' or title == 'UI & UX Design Linkedin (P)' or title == 'Product/Market fit Linkedin (P)' or title == 'Venture Capital Linkedin (P)' or title == 'Angel Investor Linkedin (P)' or title == 'Seed Capital Linkedin (P)' or title == 'Fundraising Linkedin (P)' or title == 'Private Investor Linkedin (P)' or title == '3d Design Linkedin (P)' or title == 'Graphic Design Linkedin (P)' or title == 'Visual Design Linkedin (P)' or title == 'Marketing Designer Linkedin (P)' or title == 'Branding Consultant Linkedin (P)' or title == 'Artificial Intelligence Linkedin (P)'  or title == 'Machine Learning Linkedin (P)' or title == 'Algorithms Linkedin (P)'  or title == 'Data Mining Linkedin (P)' or title == 'Neural Networks Linkedin (P)' or title == 'Data Prediction Linkedin (P)' or title == 'Figma Linkedin (P)' or title == 'Notion Linkedin (P)' or title == 'Slack Linkedin (P)' or title == 'Trello Linkedin (P)' or title == 'Brand Designers Linkedin (P)' or title == 'Data Scientist Linkedin (P)' or title == 'NFT Linkedin (P)' or title == 'DeFi Linkedin (P)' or title == 'DAPP Linkedin (P)' or title == 'DAO Linkedin (P)' or title == 'Yield Farming Linkedin (P)' or title == 'Community Moderator Linkedin (P)' or title == 'Community Building Linkedin (P)' or title == 'Community Management Linkedin (P)' or title == 'Discord Community Linkedin (P)' or title == 'Entrepreneurs Linkedin (P)' or title == 'Founders Linkedin (P)'   %}
+                    <tr style="background-color:{% if emp_list.contact == 1 %}#F0FFF0 {% elif emp_list.contact == 2%}#FFFFE0{% endif %};">
+                     <td> <input type="checkbox" name="inputs" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} />
+                    <td><input type="checkbox" name="ids" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} /></td>
+                     <td>{{emp_list.profileUrl}}</td>
+                     <td>{{emp_list.currentJob}}</td>
+                     <td>{{emp_list.job}}</td>
+                     <td>{{emp_list.Keyword}}</td>
+                     <td>{{emp_list.location}}</td>
+                     <td>{{emp_list.fullName}}</td>
+                    </tr>
+
+                    {% elif title == 'Web Development Linkedin (P) Ads' or title == 'Software Development Linkedin (P) Ads' or title == 'Mobile Development Linkedin (P) Ads' or title == 'Blockchain Linkedin (P) Ads' or title == 'Digital Marketing Linkedin (P) Ads' or title == 'Data Analysis Linkedin (P) Ads' or title == 'UI & UX Design Linkedin (P) Ads' or title == 'Product/Market fit Linkedin (P) Ads' or title == 'Venture Capital Linkedin (P) Ads' or title == 'Angel Investor Linkedin (P) Ads' or title == 'Seed Capital Linkedin (P) Ads' or title == 'Fundraising Linkedin (P) Ads' or title == 'Private Investor Linkedin (P) Ads' or title == '3d Design Linkedin (P) Ads' or title == 'Graphic Design Linkedin (P) Ads' or title == 'Visual Design Linkedin (P) Ads' or title == 'Marketing Designer Linkedin (P) Ads' or title == 'Branding Consultant Linkedin (P) Ads' or title == 'Artificial Intelligence Linkedin (P) Ads'  or title == 'Machine Learning Linkedin (P) Ads' or title == 'Algorithms Linkedin (P) Ads'  or title == 'Data Mining Linkedin (P) Ads' or title == 'Neural Networks Linkedin (P) Ads' or title == 'Data Prediction Linkedin (P) Ads' or title == 'Figma Linkedin (P) Ads' or title == 'Notion Linkedin (P) Ads' or title == 'Slack Linkedin (P) Ads' or title == 'Trello Linkedin (P) Ads' or title == 'Brand Designers Linkedin (P) Ads' or title == 'Data Scientist Linkedin (P) Ads' or title == 'NFT Linkedin (P) Ads' or title == 'DeFi Linkedin (P) Ads' or title == 'DAPP Linkedin (P) Ads' or title == 'DAO Linkedin (P) Ads' or title == 'Yield Farming Linkedin (P) Ads' or title == 'Community Moderator Linkedin (P) Ads' or title == 'Community Building Linkedin (P) Ads' or title == 'Community Management Linkedin (P) Ads' or title == 'Discord Community Linkedin (P) Ads' or title == 'Entrepreneurs Linkedin (P) Ads' or title == 'Founders Linkedin (P) Ads' %}
+                    <tr style="background-color:{% if emp_list.contact == 1 %}#F0FFF0 {% elif emp_list.contact == 2%}#FFFFE0{% endif %};">
+                     <td> <input type="checkbox" name="inputs" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} />
+                    <td><input type="checkbox" name="ids" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} /></td>
+                     <td>{{emp_list.First_Name}}</td>
+                     <td>{{emp_list.Last_Name}}</td>
+                     <td>{{emp_list.currentJob}}</td>
+                     <td>{{emp_list.profileUrl}}</td>
+                     <td>{{emp_list.Category}}</td>
+                    </tr>
+
+
+
+
+                    {% elif title == 'Facebook' or title == 'Venture Capital Facebook' or title == 'Angel Investor Facebook' or title == 'Pitchdeck Facebook' or title == 'Private Investor Facebook' or title == 'Business Angel Facebook' or title == '3d Design Facebook' or title == 'Graphic Design Facebook' or title == 'Artificial Intelligence Facebook'  or title == 'Machine Learning Facebook' or title == 'Algorithms Facebook'  or title == 'Data Mining Facebook' or title == 'Neural Networks Facebook' or title == 'Digital Marketing Facebook' or title == 'Blockchain Facebook' or title == 'Software Development Facebook' or title == 'Data Analysis Facebook' or title == 'UX/UI Design Facebook' or title == 'Entrepreneurs Facebook'  or title == '3d Animation Facebook' or title == '3d Modeling Facebook' or title == 'Blogging Facebook' or title == 'Content Marketing Facebook' or title == 'Email Marketing Facebook' or title == 'Figma Design Facebook' or title == 'Graphic Design Facebook' or title == 'Infographics Facebook' or title == 'Instagram Marketing Facebook' or title == 'Marketing Videos Facebook' or title == 'Poadcasting Facebook' or title == 'Social Media Marketing Facebook' or title == 'Tiktok Marketing Facebook' or title == 'Video Marketing Facebook' or title == 'Youtube Marketing Facebook'%}
+                    <tr style="background-color:{% if emp_list.contact == 1 %}#F0FFF0 {% elif emp_list.contact == 2%}#FFFFE0{% endif %};" >
+                     <td> <input type="checkbox" name="inputs" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} />
+                    <td><input type="checkbox" name="ids" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} /></td>
+                     <td>{{emp_list.Profile_URL}}</td>
+                     <td>{{emp_list.Full_Name}}</td>
+                     <td>{{emp_list.First_Name}}</td>
+                     <td>{{emp_list.Last_Name}}</td>
+                     <td>{{emp_list.Education}}</td>
+                     <td>{{emp_list.Category}}</td>
+                    </tr>
+
+
+                    {% elif title == 'Algorithms Facebook Ads' or title == 'Venture Capital Facebook Ads' or title == 'Angel Investor Facebook Ads' or title == 'Pitchdeck Facebook Ads' or title == 'Private Investor Facebook Ads' or title == 'Business Angel Facebook Ads' or title == '3d Design Facebook Ads' or title == 'Graphic Design Facebook Ads' or title == 'Artificial Intelligence Facebook Ads'  or title == 'Machine Learning Facebook Ads'  or title == 'Data Mining Facebook Ads' or title == 'Neural Networks Facebook Ads' or title == 'Digital Marketing Facebook Ads' or title == 'Blockchain Facebook Ads' or title == 'Software Development Facebook Ads' or title == 'Data Analysis Facebook Ads' or title == 'UX & UI Design Facebook Ads' or title == 'Entrepreneurs Facebook Ads' or title == '3d Animation Facebook Ads' or title == '3d Modeling Facebook Ads' or title == 'Blogging Facebook Ads' or title == 'Content Marketing Facebook Ads' or title == 'Email Marketing Facebook Ads' or title == 'Figma Design Facebook Ads' or title == 'Graphic Design Facebook Ads' or title == 'Infographics Facebook Ads' or title == 'Instagram Marketing Facebook Ads' or title == 'Marketing Videos Facebook Ads' or title == 'Poadcasting Facebook Ads' or title == 'Social Media Marketing Facebook Ads' or title == 'Tiktok Marketing Facebook Ads' or title == 'Video Marketing Facebook Ads' or title == 'Youtube Marketing Facebook Ads' %}
+                    <tr style="background-color:{% if emp_list.contact == 1 %}#F0FFF0 {% elif emp_list.contact == 2%}#FFFFE0{% endif %};" >
+                     <td> <input type="checkbox" name="inputs" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} />
+                    <td><input type="checkbox" name="ids" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} /></td>
+                    <td>{{emp_list.email}}</td>
+                     <td>{{emp_list.First_Name}}</td>
+                     <td>{{emp_list.Last_Name}}</td>
+                     <td>{{emp_list.uid}}</td>
+                     <td>{{emp_list.Category}}</td>
+                    </tr>
+
+                    {% elif title == 'Entrepreneurs Instagram Ads' or title == 'MentorPass Instagram Ads' or title == 'MicroMentor Instagram Ads' or title == 'UI & UX Design Instagram Ads' or title == 'Digital Marketing Instagram Ads' %}
+                    <tr style="background-color:{% if emp_list.contact == 1 %}#F0FFF0 {% elif emp_list.contact == 2%}#FFFFE0{% endif %};" >
+                     <td> <input type="checkbox" name="inputs" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} />
+                    <td><input type="checkbox" name="ids" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} /></td>
+                     <td>{{emp_list.First_Name}}</td>
+                     <td>{{emp_list.Last_Name}}</td>
+                     <td>{{emp_list.uid}}</td>
+                     
+                    </tr>
+
+
+                    {% elif title == 'Community Building Twitter Ads' or title == 'Community Growth Twitter Ads' or title == 'Community Management Twitter Ads' or title == 'Twitter Marketing Twitter Ads' or title == 'Web3 Community Twitter Ads' or title == 'Web3 Marketing Twitter Ads' or title == 'Discord Bots Twitter Ads' or title == 'Chat Bots Twitter Ads' or title == 'Venture Capital Twitter Ads' or title == 'Angel Investor Twitter Ads' or title == 'Seed Capital Twitter Ads' or title == 'Web3 Fund Twitter Ads' or title == 'Web3 Grants Twitter Ads' or title == 'Fundraising Twitter Ads' or title == 'Whitepaper Twitter Ads' or title == 'Pitchdeck Twitter Ads' or title == 'Private Investor Twitter Ads' or title == 'Business Angel Twitter Ads' or title == 'Web3 Investor Twitter Ads' or title == '3d Design Twitter Ads' or title == 'Graphic Design Twitter Ads' or title == 'Visual Design Twitter Ads' or title == 'Marketing Designer Twitter Ads' or title == 'Branding Consultant Twitter Ads' or title == 'Artificial Intelligence Twitter Ads'  or title == 'Machine Learning Twitter Ads' or title == 'Algorithms Twitter Ads'  or title == 'Data Mining Twitter Ads' or title == 'Neural Networks Twitter Ads' or title == 'Data Prediction Twitter Ads' or title == 'Digital Marketing Twitter Ads' or title == 'Entrepreneurs Twitter Ads'  or title == 'UI & UX Design Twitter Ads'  or title == 'Figma Twitter Ads' or title == 'Onalytica Twitter Ads' or title == 'Slack Twitter Ads' or title == 'Trello Twitter Ads'  or title == 'Miro Twitter Ads'  or title == 'Notion Twitter Ads'  or title == 'MicroMentor Twitter Ads'  or title == 'MentorPass Twitter Ads' or title == 'Enterpreneurs Twitter Ads' or title == 'DeFi Twitter Ads'%}
+                    <tr style="background-color:{% if emp_list.contact == 1 %}#F0FFF0 {% elif emp_list.contact == 2%}#FFFFE0{% endif %};" >
+                     <td> <input type="checkbox" name="inputs" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} />
+                    <td><input type="checkbox" name="ids" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} /></td>
+                     <td>{{emp_list.User_Id}}</td>
+                    </tr>
+
+
+
+
+                    {% elif title == 'Twitter' or title == 'Community Building Twitter' or title == 'Community Growth Twitter' or title == 'Community Management Twitter' or title == 'Twitter Marketing' or title == 'Web3 Community Twitter' or title == 'Web3 Marketing Twitter' or title == 'Discord Bots Twitter' or title == 'Chat Bots Twitter' or title == 'Venture Capital Twitter' or title == 'Angel Investor Twitter' or title == 'Seed Capital Twitter' or title == 'Web3 Fund Twitter' or title == 'Web3 Grants Twitter' or title == 'Fundraising Twitter' or title == 'Whitepaper Twitter' or title == 'Pitchdeck Twitter' or title == 'Private Investor Twitter' or title == 'Business Angel Twitter' or title == 'Web3 Investor Twitter' or title == '3d Design Twitter' or title == 'Graphic Design Twitter' or title == 'Visual Design Twitter' or title == 'Marketing Designer Twitter' or title == 'Branding Consultant Twitter' or title == 'Artificial Intelligence Twitter'  or title == 'Machine Learning Twitter' or title == 'Algorithms Twitter'  or title == 'Data Mining Twitter' or title == 'Neural Networks Twitter' or title == 'Data Prediction Twitter' or title == 'Digital Marketing Twitter' or title == 'Entrepreneurs Twitter'  or title == 'UI & UX Design Twitter'  or title == 'Figma Twitter' or title == 'Onalytica Twitter' or title == 'Slack Twitter' or title == 'Trello Twitter'  or title == 'Miro Twitter'  or title == 'Notion Twitter'  or title == 'MicroMentor Twitter'  or title == 'MentorPass Twitter' or title == 'DeFi Twitter' %}
+                    <tr style="background-color:{% if emp_list.contact == 1 %}#F0FFF0 {% elif emp_list.contact == 2%}#FFFFE0{% endif %};">
+                     <td> <input type="checkbox" name="inputs" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} />
+                     <td><input type="checkbox" name="ids" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} /></td>
+                     <td>{{emp_list.Profile_Url}}</td>
+                     <td>{{emp_list.Screen_Name}}</td>
+                     <td>{{emp_list.User_Id}}</td>
+                     <td>{{emp_list.Name}}</td>
+                     <td>{{emp_list.Img_Url}}</td>
+                     <td>{{emp_list.Background_Img}}</td>
+                     <td>{{emp_list.Bio}}</td>
+                     <td>{{emp_list.Website}}</td>
+                     <td>{{emp_list.Location}}</td>
+                     <td>{{emp_list.Created_At}}</td>
+                     <td>{{emp_list.Followers_Count}}</td>
+                     <td>{{emp_list.Friends_Count}}</td>
+                     <td>{{emp_list.Tweets_Count}}</td>
+                     <td>{{emp_list.Certified}}</td>
+                     <td>{{emp_list.Following}}</td>
+                     <td>{{emp_list.Followed_By}}</td>
+                     <td>{{emp_list.Query}}</td>
+                     <td>{{emp_list.Timestamp1}}</td>
+                    </tr>
+
+                    {% elif title == 'Accelerators' %}
+                    <tr style="background-color:{% if emp_list.contact == 1 %}#F0FFF0 {% elif emp_list.contact == 2%}#FFFFE0{% endif %};">
+                     <td> <input type="checkbox" name="inputs" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} />
+                     <td><input type="checkbox" name="ids" id="option{{emp_list.Row_id}}" value={{emp_list.Row_id}} /></td>
+                     <td> <center><a class='GFG' onclick="myHandler('{{emp_list.Row_id}}')">Update</a></center></td>
+
+                    <td>{{emp_list.Accelerators}}</td>
+                    <td style="background-color: #F0F0F0" contenteditable='true' data-id="ID-{{emp_list.Row_id}}" data-old_value='{{emp_list.ID}}' onClick="highlightEdit(this);">{{emp_list.ID}}</td>
+                
+                     <td style="background-color: #F0F0F0" contenteditable='true' data-id="LinkedIn_Name-{{emp_list.Row_id}}" data-old_value='{{emp_list.LinkedIn_Name}}' onClick="highlightEdit(this);">{{emp_list.LinkedIn_Name}}</td>
+
+                     <td style="background-color: #F0F0F0" contenteditable='true' data-id="First_Name-{{emp_list.Row_id}}" data-old_value='{{emp_list.First_Name}}' onClick="highlightEdit(this);">{{emp_list.First_Name}}</td>
+
+                     <td style="background-color: #F0F0F0" contenteditable='true' data-id="Last_Name-{{emp_list.Row_id}}" data-old_value='{{emp_list.Last_Name}}' onClick="highlightEdit(this);">{{emp_list.Last_Name}}</td>
+
+                     <td style="background-color: #F0F0F0" contenteditable='true' data-id="Email_Top_Guess-{{emp_list.Row_id}}" data-old_value='{{emp_list.Email_Top_Guess}}' onClick="highlightEdit(this);">{{emp_list.Email_Top_Guess}}</td>
+
+                     <td style="background-color: #F0F0F0;word-break: break-all;" contenteditable='true' data-id="Email_Other_Guesses-{{emp_list.Row_id}}" data-old_value='{{emp_list.Email_Other_Guesses}}' onClick="highlightEdit(this);">{{emp_list.Email_Other_Guesses}}</td>
+
+                     <td>{{emp_list.Description}}</td>
+                     <td>{{emp_list.Organisation}}</td>
+                     <td>{{emp_list.Location}}</td>
+                     
+                    </tr>
+                    {%endif%}
+                    {% endfor %}
+                
+
+                </tr>
+                </form>
+                </tbody>
+            </table> 
+       
+
+
+
+<!--Pagination-->
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+    {% if topic.has_previous %}
+        <li class="page-item">
+        <a class="page-link" href="?page=1{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">&laquo; First</a></li>
+        <li class="page-item">
+        <a class="page-link" href="?page={{ topic.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Previous</a>
+        </li>
+    {% else %}
+        <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+      </li>
+    {% endif %}
+
+    {% if topic.number|add:'-4' > 1 %}
+        <li class="page-item"><a class="page-link" href="?page={{ topic.number|add:'-5' }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">&hellip;</a></li>
+    {% endif %}
+
+    {% for i in topic.paginator.page_range %}
+        {% if topic.number == i %}
+
+            <li class="page-item active" aria-current="page">
+          <span class="page-link">
+            {{ i }}
+            <span class="sr-only">(current)</span>
+          </span>
+        </li>
+        {% elif i > topic.number|add:'-5' and i < topic.number|add:'5' %}
+             <li class="page-item"><a class="page-link" href="?page={{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ i }}</a></li>
+        {% endif %}
+    {% endfor %}
+
+    {% if topic.paginator.num_pages > topic.number|add:'4' %}
+       <li class="page-item"><a class="page-link" href="?page={{ topic.number|add:'5' }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">&hellip;</a></li>
+    {% endif %}
+
+    {% if topic.has_next %}
+        <li class="page-item">
+        <a class="page-link" href="?page={{ topic.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Next</a>
+        </li>
+        <li class="page-item">
+        <a class="page-link" href="?page={{ topic.paginator.num_pages }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Last &raquo;</a>
+        </li>
+    {% else %}
+        <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>
+<!--end of Pagination-->
+
+
+</html>
+<script type="text/javascript">
+
+
+    
+function myHandler(id){
+    
+    editableID = $('[data-id=ID-' + id + ']')
+    editableLinledIn_Name = $('[data-id=LinkedIn_Name-' + id + ']') 
+    editableFirst_Name = $('[data-id=First_Name-' + id + ']') 
+    editableLast_Name = $('[data-id=Last_Name-' + id + ']') 
+    editableEmail_Top_Guess = $('[data-id=Email_Top_Guess-' + id + ']') 
+    editableEmail_Other_Guesses  = $('[data-id=Email_Other_Guesses-' + id + ']') 
+
+    console.log(id,editableID.text(), editableLinledIn_Name.text(),editableFirst_Name.text(),editableLast_Name.text(),editableEmail_Top_Guess.text(),editableEmail_Other_Guesses.text())
+    if ($(editableID).attr('data-old_value') === editableID.innerHTML && $(editableLinledIn_Name).attr('data-old_value') === editableLinledIn_Name.innerHTML)
+            return false;
+    $.ajax({
+            url:"https://spaced-data.herokuapp.com/accounts/accelerators/?Row_id="+id+"&ID="+editableID.text()+"&LinkedIn_Name="+editableLinledIn_Name.text()+"&First_Name="+editableFirst_Name.text()+"&Last_Name="+editableLast_Name.text()+"&Email_Top_Guess="+editableEmail_Top_Guess.text()+"&Email_Other_Guesses="+editableEmail_Other_Guesses.text(),
+            type:"GET",
+            dataType: "json",
+            
+            
+
+    });
+
+}
+
+
+
+
+function highlightEdit(elem){
+      $(elem).css("background", "#e3e3e3") //just add any css or anything, it's only to depict that this area is being edited...
+     
+    }
+
+
+
+
+</script>

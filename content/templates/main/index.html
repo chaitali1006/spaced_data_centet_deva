@@ -1,0 +1,53 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load i18n %}
+
+{% block content %}
+
+    {% if request.user.is_authenticated %}
+
+        <!--{% trans 'Your username is' %} <b>{{ request.user.username }}</b>.-->
+       
+        <b><h3>Talk.onl User Data</h3></b>
+        <u><h5> List of Tables</h5></u>
+<b><h6 style="color:green"> Web 2</h6></b>
+<a href="https://talk-data-center.herokuapp.com/accounts/instagram">Instagram</a>
+<br>
+<a href="https://talk-data-center.herokuapp.com/accounts/linkedin_lix">Linkedin LIX</a>
+<br>
+<a href="https://talk-data-center.herokuapp.com/accounts/linkedin_group">Linkedin Group</a>
+<br>
+<a href="https://talk-data-center.herokuapp.com/accounts/linkedin_search">Linkedin Search</a>
+<br>
+<a href="https://talk-data-center.herokuapp.com/accounts/facebook">Facebook</a>
+<br>
+<a href="https://talk-data-center.herokuapp.com/accounts/twitter">Twitter</a>
+<br>
+<a href="https://talk-data-center.herokuapp.com/accounts/accelerators">Accelerators</a>
+<br><br>
+<b><h6 style="color:green"> Web 3</h6></b>
+<a href="https://talk-data-center.herokuapp.com/accounts/wonderverse">Discord (Wonderverse)
+</a>
+<br>
+<a href="https://talk-data-center.herokuapp.com/accounts/Blank">Discord (Blank Foundation)
+</a>
+<br>
+<a href="https://talk-data-center.herokuapp.com/accounts/twitter_web3">Twitter</a>
+<br><br>
+<b><h6 style="color:green">Customers</h6></b>
+<a href="https://talk-data-center.herokuapp.com/accounts/entrepreneurs">Entrepreneurs LIX</a><br>
+<a href="https://talk-data-center.herokuapp.com/accounts/founders">Founders LIX</a><br>
+<a href="https://talk-data-center.herokuapp.com/accounts/scaleups">Scaleups LIX</a>
+
+
+
+
+    {% else %}
+
+        <h5><b> Welcome to the Spaced Database</b></h5>
+
+    {% endif %}
+
+{% endblock %}
+
+

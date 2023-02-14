@@ -1,0 +1,279 @@
+<html>
+ <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head> 
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style type="text/css">
+    .float-container {
+    
+    padding: 5px;
+}
+
+.float-child {
+    width: 30%;
+    float: left;
+    padding: 5px;
+    
+}  
+</style>
+
+
+
+<div class="float-container">
+
+  <div style="width:20%;float: left;padding: 5px;">
+   <a href="http://127.0.0.1:8000/" class="btn btn-primary">Main Menu</a> 
+
+  </div>
+  
+  <div style="width:50%;float: left;padding: 5px;">
+    <h3><center>{{title}}</center></h3>
+
+
+  </div>
+  
+</div>
+
+<br>
+<br>
+
+
+
+<br>
+<div style="padding-left: 15px;">
+<span style="color:red">Order of CSV file should be 
+{% if display_column %}
+{{display_column}}
+{% else %}
+{{columns}}
+{% endif %}</span><br>
+<span style="color:green">To export all data on the page, click Export CSV with no rows marked</span>
+</div>
+{{ses_var}}
+<br>
+<!-- Upload csv file-->
+<div>
+<div>
+      <form  method="POST" enctype="multipart/form-data">{% csrf_token %}
+        <div class="file-field input-field">
+        <div class="btn">
+        <b><span>Upload a CSV FILE: </span></b>
+        <input type="file" name="file">
+        </div>
+        <button  name="csv_upload" type="submit">Upload</button>
+        <button onclick="return confirm('Are you sure to delete?')" name="csv_delete" type="submit">Delete</button>
+        
+        <span style="color:green;padding-left: 20px;">
+        {{msg}}</span>
+
+        </div>
+   
+        </form>  
+
+</div>
+
+
+</div>
+
+<br> 
+
+<div class="float-container">
+
+  <div class="float-child">
+    <b>Showing {{start_index}} to {{end_index}} of {{total}} entries  </b> 
+
+  </div>
+  
+  <div class="float-child">
+    <form name="no_result" method="get">
+    <select name="num" id="num">
+      <option value="10">10</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+      <option value="500">500</option>
+    </select>
+    Results
+    <input type="submit" value="Show" name="no_result">
+    </form>
+
+  </div>
+  
+</div>
+
+
+
+
+
+<table id="albums" class="table table-bordered">
+  <thead>
+
+<!--Header-->
+
+    <tr>
+    
+     
+    {% if merge %}
+    <th>Actions</th>
+    <th>Update</th>
+     {% for heading in columns|slice:"1:" %}
+      <th>{{ heading }} </th>
+      {% endfor %}
+    {% else %}
+    <th>Actions</th>
+     {% for heading in columns %}
+      <th>{{ heading }} </th>
+      {% endfor %}
+    {% endif %}
+
+
+    </tr>
+<!--Header End-->
+
+<!--SEARCH-->
+<form method="get" id="search" name="search">
+
+<tr>
+    <td>
+   <input type="submit" value="Search" name="search">
+    <input  onclick="return confirm('Are you sure to Export CSV?')" name="csv_export" value="Export CSV" type="submit">
+</td> 
+
+    {% if merge %}
+    <td></td>
+    {% for heading in columns|slice:"1:" %}
+      <td><input id='q' name='{{ heading }}' type='text' placeholder="Search {{heading}}..."   /></td>
+   
+    {% endfor %}
+    {% else %}
+       {% for heading in columns%}
+          <td><input id='q' name='{{ heading }}' type='text' placeholder="Search {{heading}}..."   /></td>
+       
+        {% endfor %}
+    {% endif %}
+
+
+
+    
+
+   </tr> 
+
+<!--End of Search-->
+
+
+</thead>
+
+
+<!--Display Data-->
+
+  <tbody>
+    <tr>
+    
+   {% for row in topic %}
+
+    <td> <input type="checkbox" name="inputs" id="option{{row.0}}" value={{row.0}} /></form>
+    <form method="get" id="update" name="update">
+
+    {% if merge %}
+    <td><input type="submit" name="update" id="update" value="Update" /></td>
+    {% endif %}
+    </td>
+
+    
+
+    <!--WITH UPDATE -->
+    {% if merge %}
+
+        <td><input type="hidden" name="Row_id" value="{{row.0}}" />{{ row.1 }}</td>  
+        <td><input type="text" name="ID" value="{{row.2}}" /></td>  
+        <td><input type="text" name="LinkedIn_Name" value="{{row.3}}" /></td>  
+        <td><input type="text" name="First_Name" value="{{row.4}}" /></td> 
+        <td><input type="text" name="Last_Name" value="{{row.5}}" /></td> 
+        <td><input type="text" name="Email_Top_Guess" value="{{row.6}}" /></td>
+        <td><input type="text" name="Email_Other_Guesses" value="{{row.7}}" /></td>
+        <td>{{ row.8 }}</td>
+        <td>{{ row.9 }}</td>
+        <td>{{ row.10 }}</td>
+    </form>
+
+    <!-- WITHOUT UPDATE-->
+    {% else %}
+        {% for col in row %}  
+            <td>{{col}}</td>  
+        {% endfor %}
+
+    
+
+    {% endif %}
+    </tr> 
+  {% endfor %}
+  </tbody>
+
+  <!--End of Display data-->
+</table>
+
+
+
+
+    <!--Pagination-->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+        {% if topic.has_previous %}
+            <li class="page-item">
+            <a class="page-link" href="?page=1">&laquo; First</a></li>
+            <li class="page-item">
+            <a class="page-link" href="?page={{ topic.previous_page_number }}">Previous</a>
+            </li>
+        {% else %}
+            <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+          </li>
+        {% endif %}
+
+        {% if topic.number|add:'-4' > 1 %}
+            <li class="page-item"><a class="page-link" href="?page={{ topic.number|add:'-5' }}">&hellip;</a></li>
+        {% endif %}
+
+        {% for i in topic.paginator.page_range %}
+            {% if topic.number == i %}
+
+                <li class="page-item active" aria-current="page">
+              <span class="page-link">
+                {{ i }}
+                <span class="sr-only">(current)</span>
+              </span>
+            </li>
+            {% elif i > topic.number|add:'-5' and i < topic.number|add:'5' %}
+                 <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+        {% endfor %}
+
+        {% if topic.paginator.num_pages > topic.number|add:'4' %}
+           <li class="page-item"><a class="page-link" href="?page={{ topic.number|add:'5' }}">&hellip;</a></li>
+        {% endif %}
+
+        {% if topic.has_next %}
+            <li class="page-item">
+            <a class="page-link" href="?page={{ topic.next_page_number }}">Next</a>
+            </li>
+            <li class="page-item">
+            <a class="page-link" href="?page={{ topic.paginator.num_pages }}">Last &raquo;</a>
+            </li>
+        {% else %}
+            <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+    <!--end of Pagination-->
+
+
+</html>
+<script type="text/javascript">
+    
+function myHandler(){
+    alert("ASdS");
+}
+
+</script>

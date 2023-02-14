@@ -1,0 +1,121 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load i18n %}
+
+{% block content %}
+
+    {% if request.user.is_authenticated %}
+
+        <!--{% trans 'Your username is' %} <b>{{ request.user.username }}</b>-->
+       
+<p><b style="font-size: 150%">The Spaced Database </b>({{total}} Users) </b></p>
+        
+<table  style="border-spacing: 500px" >
+
+
+<tr><td style="margin-bottom: 10px;padding-right: 10px;" ><b><u><h6 style="color:black;">Customers</h6></u></b></td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/accelerators">Accelerators</a></td>
+<td></td><td> {{acc}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/enter_fb">Entrepreneurs Facebook</a></td>
+<td></td><td> {{enter_fb}}</td><td></td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/enterpreneurs_fb_ads">Entrepreneurs Facebook Ads</a></td>
+<td></td><td> {{enterpreneurs_fb_ads}}</td></tr>
+
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/entrepreneurs">Entrepreneurs Linkedin (L)</a> </td>
+<td></td><td>{{enter}}</td><td></td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/enterpreneurs_lix__ads">Entrepreneurs Linkedin (L) Ads</a> </td>
+<td></td><td>{{enterpreneurs_lix__ads}}</td></tr>
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/founders">Founders Linkedin (L)</a></td>
+<td></td><td> {{fn}}</td><td></td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/founder_lix_ads">Founders Linkedin (L) Ads</a></td>
+<td></td><td> {{founder_lix_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/entrepreneurs_phantom">Entrepreneurs Linkedin (P)</a> </td>
+<td></td><td>{{enter_phantom}}</td><td></td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/enterpreneurs_phantom_ads">Entrepreneurs Linkedin (P) Ads</a> </td>
+<td></td><td>{{enterpreneurs_phantom_ads}}</td></tr>
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/founders_phantom">Founders Linkedin (P)</a></td>
+<td></td><td> {{fn_phantom}}</td><td></td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/founders_phantom_ads">Founders Linkedin (P) Ads</a></td>
+<td></td><td> {{founders_phantom_ads}}</td></tr>
+
+
+<tr style="visibility: hidden"><td>a </td><td> a</td></tr>
+<tr>
+<td style="padding-right: 10px;"><b><u><h6 style="color:black;">Managers</h6></u></b></td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/ceo_lix">CEO Linkedin (L)</a></td><td></td>
+<td> {{founders_phantom_ads}}</td><td></td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/ceo_lix_ads">CEO Linkedin (L) Ads</a></td><td></td>
+<td> {{founders_phantom_ads}}</td></tr>
+
+
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/cio_lix">CIO Linkedin (L)</a></td><td></td>
+<td> {{founders_phantom_ads}}</td><td></td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/cio_lix_ads">CIO Linkedin (L) Ads</a></td><td></td>
+<td> {{founders_phantom_ads}}</td></tr>
+
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/coo_lix">COO Linkedin (L)</a></td><td></td>
+<td> {{founders_phantom_ads}}</td><td></td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/coo_lix_ads">COO Linkedin (L) Ads</a></td><td></td>
+<td> {{founders_phantom_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/cto_lix">CTO Linkedin (L)</a></td><td></td>
+<td> {{founders_phantom_ads}}</td><td></td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/cto_lix_ads">CTO Linkedin (L) Ads</a></td><td></td>
+<td> {{founders_phantom_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/doo_lix">Director of Operation Linkedin (L)</a></td><td></td>
+<td> {{founders_phantom_ads}}</td><td></td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/doo_lix_ads">Director of Operation Linkedin (L) Ads</a></td><td></td>
+<td> {{founders_phantom_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/gom_lix">Growth of Manager Linkedin (L)</a></td><td></td>
+<td> {{founders_phantom_ads}}</td><td></td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/gom_lix_ads">Growth of Manager Linkedin (L) Ads</a></td><td></td>
+<td> {{founders_phantom_ads}}</td></tr>
+
+
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/hom_lix">Head of Marketing Linkedin (L)</a></td><td></td>
+<td> {{founders_phantom_ads}}</td><td></td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/hom_lix_ads">Head of Marketing Linkedin (L) Ads</a></td><td></td>
+<td> {{founders_phantom_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/hos_lix">Head of Sales Linkedin (L)</a></td><td></td>
+<td> {{founders_phantom_ads}}</td><td></td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/hos_lix_ads">Head of Sales Linkedin (L) Ads</a></td><td></td>
+<td> {{founders_phantom_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/md_lix">Marketing Director Linkedin (L)</a></td><td></td>
+<td> {{founders_phantom_ads}}</td><td></td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/md_lix_ads">Marketing Director Linkedin (L) Ads</a></td><td></td>
+<td> {{founders_phantom_ads}}</td></tr>
+
+
+<tr style="visibility: hidden"><td><a href="https://spaced-data-center.herokuapp.com/accounts/yf_phantom">Yield Farming Linkedin (P)</a></td>
+<td></td><td> {{yf_phantom}}</td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/yield_farming_phantom_ads">Yield Farming Linkedin (P) Ads</a></td>
+<td></td><td> {{yield_farming_phantom_ads}}</td></tr>
+
+
+
+
+
+</table>
+
+
+    {% else %}
+
+        <h5><b>Welcome to the Spaced Database.</b></h5>
+
+    {% endif %}
+
+{% endblock %}
+
+

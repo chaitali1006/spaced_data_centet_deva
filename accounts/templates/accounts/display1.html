@@ -1,0 +1,27 @@
+<html>
+   
+    <body>
+           
+            <table id="albums" class="table table-bordered">
+                <thead>
+                    <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                  
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for emp_list in emp %}
+                    <tr>
+                    <td>{{ emp_list.fullName }}</td>
+                    <td>{{ emp_list.profileUrl }}</td>
+                    <td>{{ emp_list.query }}</td>
+                    
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table> 
+       
+    </body>
+</html>

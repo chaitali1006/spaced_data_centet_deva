@@ -1,0 +1,77 @@
+<html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+     {% for heading in columns %}
+      <th>{{ heading }} </th>
+     {% endfor %}
+  
+    </tr>
+  </thead>
+  <tbody>
+   {% for row in topic %}
+    <tr>
+    
+      {% for col in row %}
+        <td> {{ col }}</td>
+      {% endfor %}
+    </tr> 
+  {% endfor %}
+  </tbody>
+</table>
+
+
+
+
+    <!--Pagination-->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+        {% if topic.has_previous %}
+            <li class="page-item">
+            <a class="page-link" href="?page={{ topic.previous_page_number }}">Previous</a>
+          </li>
+        {% else %}
+            <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+          </li>
+        {% endif %}
+
+        {% if topic.number|add:'-4' > 1 %}
+            <li class="page-item"><a class="page-link" href="?page={{ topic.number|add:'-5' }}">&hellip;</a></li>
+        {% endif %}
+
+        {% for i in topic.paginator.page_range %}
+            {% if topic.number == i %}
+                <li class="page-item active" aria-current="page">
+              <span class="page-link">
+                {{ i }}
+                <span class="sr-only">(current)</span>
+              </span>
+            </li>
+            {% elif i > topic.number|add:'-5' and i < topic.number|add:'5' %}
+                 <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+        {% endfor %}
+
+        {% if topic.paginator.num_pages > topic.number|add:'4' %}
+           <li class="page-item"><a class="page-link" href="?page={{ topic.number|add:'5' }}">&hellip;</a></li>
+        {% endif %}
+
+        {% if topic.has_next %}
+            <li class="page-item">
+            <a class="page-link" href="?page={{ topic.next_page_number }}">Next</a>
+          </li>
+        {% else %}
+            <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+    <!--end of Pagination-->
+
+
+</html>

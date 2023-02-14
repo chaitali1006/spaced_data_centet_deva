@@ -1,0 +1,8 @@
+django==3.1.7
+gunicorn
+django-bootstrap4==3.0.1
+bower
+grunt
+pandas
+parse
+setuptools==22.0.4
