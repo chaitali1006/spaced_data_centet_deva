@@ -1,0 +1,87 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load i18n %}
+
+{% block content %}
+
+    {% if request.user.is_authenticated %}
+
+        <!--{% trans 'Your username is' %} <b>{{ request.user.username }}</b>-->
+       
+<p><b style="font-size: 150%">The Spaced Data Graphs </b></b></p>
+        
+<table  style="border-spacing: 500px" >
+
+
+
+
+<tr style="visibility: hidden"><td>a </td><td> a</td></tr>
+<tr><td style="margin-bottom: 10px;padding-right: 10px;" ><b><u><h6 style="color:black;">LinkedIn Data Graphs</h6></u></b></td></tr>
+
+<tr><td><a href="https://chaitali1006.github.io/spaced_cusotmer_location_count/">Customers LinkedIn Graph with Location Count</a></td>
+
+
+</tr>
+<tr><td><a href="https://chaitali1006.github.io/spaced_customer_full_name/">Customers LinkedIn Graph with Full Name</a></td>
+
+<tr><td><a href="https://chaitali1006.github.io/spaced_marketing_location_count/">Marketing LinkedIn Graph with Full Name</a></td>
+
+<tr><td><a href="https://chaitali1006.github.io/spaced_marketing_2023_full_name/">Marketing LinkedIn Graph with Full Name</a></td>
+
+<td></td><td></td>
+<td></td>
+
+
+
+<tr style="visibility: hidden"><td>a </td><td> a</td></tr>
+
+<tr><td style="margin-bottom: 10px;padding-right: 10px;" ><b><u><h6 style="color:black;">Twitter Head Category Data Graphs</h6></u></b></td></tr>
+
+
+
+<tr><td><a href="https://chaitali1006.github.io/spaced_collaboration_tools_twitter/">Collaboration Tools Graph with User Name</a></td>
+
+<td></td>
+
+<tr><td><a href="https://chaitali1006.github.io/spaced_community_buiilding_twitter/">Community Building Graph with User Name</a></td>
+
+<tr><td><a href="https://chaitali1006.github.io/spaced_design_twitter/">Design Graph with User Name</a></td>
+
+<tr><td><a href="https://chaitali1006.github.io/spaced_expert_networks_twitter/">Expert Network Graph with User Name</a></td>
+
+
+
+
+
+
+<tr><td><a href="https://chaitali1006.github.io/spaced_collaboration_tools_twitter_location/">Collaboration Tools Graph with Location</a></td>
+
+<td></td>
+
+<tr><td><a href="https://chaitali1006.github.io/spaced_community_buiilding_twitter_location/">Community Building Graph with Location</a></td>
+
+<tr><td><a href="https://chaitali1006.github.io/spaced_design_twitter_location/">Design Graph with Location</a></td>
+
+<tr><td><a href="https://chaitali1006.github.io/spaced_expert_networks_twitter_location/">Expert Network Graph with Location</a></td>
+
+
+
+
+
+<!-- <tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/twitter_web3">Twitter</a></td>
+<td></td><td> {{twitter3}}</td></tr>
+ -->
+
+
+</table>
+
+
+    {% else %}
+
+        <h5><b>Welcome to the Spaced Database.</b></h5>
+
+    {% endif %}
+
+{% endblock %}
+
+

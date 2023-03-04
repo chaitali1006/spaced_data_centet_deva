@@ -1,0 +1,735 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load i18n %}
+
+{% block content %}
+
+    {% if request.user.is_authenticated %}
+
+        <!--{% trans 'Your username is' %} <b>{{ request.user.username }}</b>-->
+       
+<p><b style="font-size: 150%">The Spaced Database </b>({{total}} Users) </b></p>
+        
+<table  style="border-spacing: 500px" >
+
+
+<tr><td style="margin-bottom: 10px;padding-right: 10px;" ><b><u><h6 style="color:black;">AI | Machine Learning</h6></u></b></td></tr>
+
+
+<tr><td><a href="http://34.136.127.1/accounts/algo_fb">Algorithms Facebook</a>
+<td></td><td> {{algo_fb}}</td><td></td>             
+<td><a href="http://34.136.127.1/accounts/algo_fb_ads">Algorithms Facebook Ads</a>
+<td></td><td> {{algo_fb_ads}}</td>
+</tr>
+
+<tr><td><a href="http://34.136.127.1/accounts/ai_fb">Artificial Intelligence Facebook</a></td>
+<td></td><td> {{ai_fb}}</td><td></td>
+<td><a href="http://34.136.127.1/accounts/ai_fb_ads">Artificial Intelligence Facebook Ads</a></td>
+<td></td><td> {{ai_fb_ads}}</td>
+</tr>
+<tr><td><a href="http://34.136.127.1/accounts/da_fb">Data Analysis Facebook</a></td>
+<td></td><td> {{da_fb}}</td><td></td>
+<td><a href="http://34.136.127.1/accounts/dataanalysis_fb_ads">Data Analysis Facebook Ads</a></td>
+<td></td><td> {{dataanalysis_fb_ads}}</td></tr>
+<tr><td><a href="http://34.136.127.1/accounts/dm_fb">Data Mining Facebook</a></td>
+<td></td><td> {{dm1_fb}}</td><td></td>
+<td><a href="http://34.136.127.1/accounts/dm_fb_ads">Data Mining Facebook Ads</a></td>
+<td></td><td> {{dm_fb_ads}}</td></tr>
+<tr><td><a href="http://34.136.127.1/accounts/ml_fb">Machine Learning Facebook</a></td>
+<td></td><td> {{ml_fb}}</td><td></td>
+<td><a href="http://34.136.127.1/accounts/ml_fb_ads">Machine Learning Facebook Ads</a></td>
+<td></td><td> {{ml_fb_ads}}</td></tr>
+<tr><td><a href="http://34.136.127.1/accounts/ann_fb">Neural Networks Facebook</a></td>
+<td></td><td> {{ann_fb}}</td><td></td>
+<td><a href="http://34.136.127.1/accounts/ann_fb_ads">Neural Networks Facebook Ads</a></td>
+<td></td><td> {{ann_fb_ads}}</td></tr>
+
+
+<tr><td><a href="http://34.136.127.1/accounts/algo_lix">Algorithms Linkedin (L)</a></td>
+<td></td><td> {{algo_lix}}</td><td></td>
+<td><a href="http://34.136.127.1/accounts/algo_lix_ads">Algorithms Linkedin (L) Ads</a></td>
+<td></td><td> {{algo_lix_ads}}</td></tr>
+<tr><td><a href="http://34.136.127.1/accounts/ai_lix">Artificial Intelligence Linkedin (L)</a></td>
+<td></td><td> {{ai_lix}}</td><td></td>
+<td><a href="http://34.136.127.1/accounts/ai_lix_ads">Artificial Intelligence Linkedin (L) Ads</a></td>
+<td></td><td> {{ai_lix_ads}}</td></tr>
+<tr><td><a href="http://34.136.127.1/accounts/data_analysis">Data Analysis Linkedin (L)</a></td><td></td>
+<td> {{da_lix}}</td><td></td>
+<td><a href="http://34.136.127.1/accounts/dataanalysis_lix_ads">Data Analysis Linkedin (L) Ads</a></td><td></td><td>{{dataanalysis_lix_ads}}</td></tr>
+<tr><td><a href="http://34.136.127.1/accounts/dm_lix">Data Mining Linkedin (L)</a></td>
+<td></td><td> {{dm_lix}}</td><td></td>
+<td><a href="http://34.136.127.1/accounts/dm_lix_ads">Data Mining Linkedin (L) Ads</a></td>
+<td></td><td> {{dm_lix_ads}}</td></tr>
+<tr><td><a href"=http://34.136.127.1/accounts/dp_lix">Data Prediction Linkedin (L)</a></td>
+<td></td><td> {{dp_lix}}</td><td></td>
+<td><a href="http://34.136.127.1/accounts/dp_lix_ads">Data Prediction Linkedin (L) Ads</a></td>
+<td></td><td> {{dp_lix_ads}}</td></tr>
+<tr><td><a href="http://34.136.127.1/accounts/data_scientist_lix">Data Scientist Linkedin (L)</a></td>
+<td></td><td> {{ds_lix}}</td><td></td>
+<td><a href="http://34.136.127.1/accounts/ds_lix_ads">Data Scientist Linkedin (L) Ads</a></td>
+<td></td><td> {{ds_lix_ads}}</td></tr>
+<tr><td><a href="http://34.136.127.1/accounts/ml_lix">Machine Learning Linkedin (L)</a></td>
+<td></td><td> {{ml_lix}}</td><td></td>
+<td><a href="http://34.136.127.1/accounts/ml_lix_ads">Machine Learning Linkedin (L) Ads</a></td>
+<td></td><td> {{ml_lix_ads}}</td></tr>
+<tr><td><a href="http://34.136.127.1/accounts/ann_lix">Neural Networks Linkedin (L)</a></td>
+<td></td><td> {{ann_lix}}</td><td></td>
+<td><a href="http://34.136.127.1/accounts/ann_lix_ads">Neural Networks Linkedin (L) Ads</a></td>
+<td></td><td> {{ann_lix_ads}}</td></tr>
+
+
+<tr><td><a hrata-center.herokuapp.com/accounts/algo_phantom">Algorithms Linkedin (P)</a></td>
+<td></td><td> {{algo_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/algo_phantom_ads">Algorithms Linkedin (P) Ads</a></td>
+<td></td><td> {{algo_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/ai_phantom">Artificial Intelligence Linkedin (P)</a></td><td></td><td> {{ai_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/ai_phantom_ads">Artificial Intelligence Linkedin (P) Ads</a></td><td></td><td> {{ai_phantom_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/data_analysis_phantom">Data Analysis Linkedin (P)</a></td><td></td><td> {{da_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/dataanalysis_phantom_ads">Data Analysis Linkedin (P) Ads</a></td><td></td><td> {{dataanalysis_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/dm_phantom">Data Mining Linkedin (P)</a></td>
+<td></td><td> {{digital_marketing_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/dm_phantom_ads">Data Mining Linkedin (P) Ads</a></td>
+<td></td><td> {{dm_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/dp_phantom">Data Prediction Linkedin (P)</a></td>
+<td></td><td> {{dp_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/dp_phantom_ads">Data Prediction Linkedin (P) Ads</a></td>
+<td></td><td> {{dp_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/data_scientist_phantom">Data Scientist Linkedin (P)</a></td><td></td><td> {{ds_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/ds_phantom_ads">Data Scientist Linkedin (P) Ads</a></td><td></td><td> {{ds_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/ml_phantom">Machine Learning Linkedin (P)</a></td>
+<td></td><td> {{ml_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/ml_phantom_ads">Machine Learning Linkedin (P) Ads</a></td><td></td><td> {{ml_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/ann_phantom">Neural Networks Linkedin (P)</a></td>
+<td></td><td> {{ann_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/ann_phantom_ads">Neural Networks Linkedin (P) Ads</a></td><td></td><td> {{ann_phantom_ads}}</td></tr>
+
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/algo_twi">Algorithms Twitter</a></td>
+<td></td><td> {{algo_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/algo_twi_ads">Algorithms Twitter Ads</a></td>
+<td></td><td> {{algo_twi_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/ai_twi">Artificial Intelligence Twitter</a></td>
+<td></td><td> {{ai_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/ai_twi_ads">Artificial Intelligence Twitter Ads</a></td>
+<td></td><td> {{ai_twi_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/dm_twi">Data Mining Twitter</a></td>
+<td></td><td> {{dm_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/dm_twi_ads">Data Mining Twitter Ads</a></td>
+<td></td><td> {{dm_twi_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/dp_twi">Data Prediction Twitter</a></td>
+<td></td><td> {{dp_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/dp_twi_ads">Data Prediction Twitter Ads</a></td>
+<td></td><td> {{dp_twi_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/ml_twi">Machine Learning Twitter</a></td>
+<td></td><td> {{ml_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/ml_twi_ads">Machine Learning Twitter Ads</a></td>
+<td></td><td> {{ml_twi_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/ann_twi">Neural Networks Twitter</a></td>
+<td></td><td> {{ann_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/ann_twi_ads">Neural Networks Twitter Ads</a></td>
+<td></td><td> {{ann_twi_ads}}</td></tr>
+
+
+<tr style="visibility: hidden"><td>a </td><td> a</td></tr>
+<tr>
+<td style="padding-right: 10px;"><b><u><h6 style="color:black;">Collaboration Tools</h6></u></b></td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/figma_lix">Figma Linkedin (L)</a></td><td></td>
+<td> {{figma_lix}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/figma_lix_ads">Figma Linkedin (L) Ads</a></td><td></td>
+<td> {{figma_lix_ads}}</td></tr>
+<!-- <tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/miro_lix">Miro LIX</a></td><td></td>
+<td> {{miro_lix}}</td></tr> -->
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/notion_lix">Notion Linkedin (L)</a></td><td></td>
+<td> {{notion_lix}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/notion_lix_ads">Notion Linkedin (L) Ads</a></td><td></td>
+<td> {{notion_lix_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/slack_lix">Slack Linkedin (L)</a></td><td></td>
+<td> {{slack_lix}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/slack_lix_ads">Slack Linkedin (L) Ads</a></td><td></td>
+<td> {{slack_lix_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/trello_lix">Trello Linkedin (L)</a></td><td></td>
+<td> {{trello_lix}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/trello_lix_ads">Trello Linkedin (L) Ads</a></td><td></td>
+<td> {{trello_lix_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/figma_phantom">Figma Linkedin (P)</a></td><td></td>
+<td> {{figma_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/figma_phantom_ads">Figma Linkedin (P) Ads</a></td><td></td><td> {{figma_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/notion_phantom">Notion Linkedin (P)</a></td><td></td>
+<td> {{notion_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/notion_phantom_ads">Notion Linkedin (P) Ads</a></td><td></td>
+<td> {{notion_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/slack_phantom">Slack Linkedin (P)</a></td><td></td>
+<td> {{slack_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/slack_phantom_ads">Slack Linkedin (P) Ads</a></td><td></td>
+<td> {{slack_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/trello_phantom">Trello Linkedin (P)</a></td><td></td>
+<td> {{trello_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/trello_phantom_ads">Trello Linkedin (P) Ads</a></td><td></td>
+<td> {{trello_phantom_ads}}</td></tr>
+
+
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/figma_twi">Figma Twitter</a></td><td></td>
+<td> {{figma_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/figma_twi_ads">Figma Twitter Ads</a></td><td></td>
+<td> {{figma_twi_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/miro_twi">Miro Twitter</a></td><td></td>
+<td> {{miro_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/miro_twi_ads">Miro Twitter Ads</a></td><td></td>
+<td> {{miro_twi_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/notion_twi">Notion Twitter</a></td><td></td>
+<td> {{notion_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/notion_twi_ads">Notion Twitter Ads</a></td><td></td>
+<td> {{notion_twi_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/onalytica_twi">Onalytica Twitter</a></td><td></td> 
+<td> {{onalytica_twi}}</td><td></td> 
+ <td><a href="https://spaced-data-center.herokuapp.com/accounts/onalytica_twi_ads">Onalytica Twitter Ads</a></td><td></td>
+<td> {{onalytica_twi_ads}}</td></tr> 
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/slack_twi">Slack Twitter</a></td><td></td>
+<td> {{slack_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/slack_twi_ads">Slack Twitter Ads</a></td><td></td>
+<td> {{slack_twi_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/trello_twi">Trello Twitter</a></td><td></td>
+<td> {{trello_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/trello_twi_ads">Trello Twitter Ads</a></td><td></td>
+<td> {{trello_twi_ads}}</td></tr>
+
+
+
+<tr style="visibility: hidden"><td>a </td><td> a</td></tr>
+<tr><td style="margin-bottom: 10px;padding-right: 10px;" ><b><u><h6 style="color:black;">Community Building</h6></u></b></td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/cb_lix">Community Building Linkedin (L)</a></td>
+<td></td><td> {{cb_LIX}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/cb_lix_ads">Community Building Linkedin (L) Ads</a></td>
+<td></td><td> {{cb_lix_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/cmanag_lix">Community Management Linkedin (L)</a></td>
+<td></td><td> {{cman_LIX}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/cmanag_lix_ads">Community Management Linkedin (L) Ads</a></td>
+<td></td><td> {{cmanag_lix_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/cm_lix">Community Moderator Linkedin (L)</a></td>
+<td></td><td> {{cm_LIX}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/cm_lix_ads">Community Moderator Linkedin (L) Ads</a></td>
+<td></td><td> {{cm_lix_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/dc_lix">Discord Community Linkedin (L)</a></td>
+<td></td><td> {{dc_LIX}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/dc_lix_ads">Discord Community Linkedin (L) Ads</a></td>
+<td></td><td> {{dc_lix_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/cb_phantom">Community Building Linkedin (P)</a></td>
+<td></td><td> {{cb_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/cb_phantom_ads">Community Building Linkedin (P) Ads</a></td>
+<td></td><td> {{cb_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/cmanag_phantom">Community Management Linkedin (P)</a></td>
+<td></td><td> {{cman_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/cmanag_phantom_ads">Community Management Linkedin (P) Ads</a></td>
+<td></td><td> {{cmanag_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/cm_phantom">Community Moderator Linkedin (P)</a></td>
+<td></td><td> {{cm_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/cm_phantom_ads">Community Moderator Linkedin (P) Ads</a></td>
+<td></td><td> {{cm_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/dc_phantom">Discord Community Linkedin (P)</a></td>
+<td></td><td> {{dc_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/dc_phantom_ads">Discord Community Linkedin (P) Ads</a></td>
+<td></td><td> {{dc_phantom_ads}}</td></tr>
+
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/chatbots_twi_view">Chat Bots Twitter</a></td>
+<td></td><td> {{chatbot_twi_count}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/chatbot_twi_ads">Chat Bots Twitter Ads</a></td>
+<td></td><td> {{chatbot_twi_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/cb_twi_view">Community Building Twitter</a></td>
+<td></td><td> {{cb_twi_count}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/cb_twi_ads">Community Building Twitter Ads</a></td>
+<td></td><td> {{cb_twi_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/cg_twi_view">Community Growth Twitter</a></td>
+<td></td><td> {{cg_twi_count}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/cg_twi_ads">Community Growth Twitter Ads</a></td>
+<td></td><td> {{cg_twi_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/cm_twi_view">Community Management Twitter</a></td>
+<td></td><td> {{cm_twi_count}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/cm_twi_ads">Community Management Twitter Ads</a></td>
+<td></td><td> {{cm_twi_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/discordbot_twi_view">Discord Bots Twitter</a></td>
+<td></td><td> {{discordbot_twi_count}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/db_twi_ads">Discord Bots Twitter Ads</a></td>
+<td></td><td> {{db_twi_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/twi_marketing_view">Twitter Marketing Twitter</a></td>
+<td></td><td> {{twi_marketing_count}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/twi_marketing_twi_ads">Twitter Marketing Twitter Ads</a></td>
+<td></td><td> {{twi_marketing_twi_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/web3_com_twi_view">Web3 Community Twitter</a></td>
+<td></td><td> {{web3_com_twi_count}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/web3_commu_twi_ads">Web3 Community Twitter Ads</a></td>
+<td></td><td> {{web3_commu_twi_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/web3_marketing_twi_view">Web3 Marketing Twitter</a></td>
+<td></td><td> {{web3_marketing_twi_count}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/web3_marketing_twi_ads">Web3 Marketing Twitter Ads</a></td>
+<td></td><td> {{web3_marketing_twi_ads}}</td></tr>
+
+
+
+
+<tr style="visibility: hidden"><td>a </td><td> a</td></tr>
+<tr><td style="margin-bottom: 10px;padding-right: 10px;" ><b><u><h6 style="color:black;">Customers</h6></u></b></td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/accelerators">Accelerators</a></td>
+<td></td><td> {{acc}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/enter_fb">Entrepreneurs Facebook</a></td>
+<td></td><td> {{enter_fb}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/enterpreneurs_fb_ads">Entrepreneurs Facebook Ads</a></td>
+<td></td><td> {{enterpreneurs_fb_ads}}</td></tr>
+<!-- <tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/enter_instagram">Entrepreneurs Instagram</a></td>
+<td></td><td> {{enter_insta}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/entrepreneurs_insta_ads">Entrepreneurs Instagram Ads</a></td>
+<td></td><td> {{entrepreneurs_insta_ads}}</td></tr> -->
+
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/entrepreneurs">Entrepreneurs Linkedin (L)</a> </td>
+<td></td><td>{{enter}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/enterpreneurs_lix__ads">Entrepreneurs Linkedin (L) Ads</a> </td>
+<td></td><td>{{enterpreneurs_lix__ads}}</td></tr>
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/founders">Founders Linkedin (L)</a></td>
+<td></td><td> {{fn}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/founder_lix_ads">Founders Linkedin (L) Ads</a></td>
+<td></td><td> {{founder_lix_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/entrepreneurs_phantom">Entrepreneurs Linkedin (P)</a> </td>
+<td></td><td>{{enter_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/enterpreneurs_phantom_ads">Entrepreneurs Linkedin (P) Ads</a> </td>
+<td></td><td>{{enterpreneurs_phantom_ads}}</td></tr>
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/founders_phantom">Founders Linkedin (P)</a></td>
+<td></td><td> {{fn_phantom}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/founders_phantom_ads">Founders Linkedin (P) Ads</a></td>
+<td></td><td> {{founders_phantom_ads}}</td></tr>
+
+<!-- <tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/enter_twi">Entrepreneurs Twitter</a></td>
+<td></td><td> {{enter_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/enterpreneurs_twi_ads">Entrepreneurs Twitter Ads</a></td>
+<td></td><td> {{enterpreneurs_twi_ads}}</td></tr>
+
+<tr>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/linkedin_group">Entrepreneurs Linkedin Group</a></td><td></td>
+<td> {{group}}</td>
+</tr>
+ -->
+
+
+
+<tr style="visibility: hidden"><td>a </td><td> a</td></tr>
+<tr><td style="margin-bottom: 10px;padding-right: 10px;" ><b><u><h6 style="color:black;">Design</h6></u></b></td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/3d_design_fb">3d Design Facebook</a></td>
+<td></td><td>{{d3_fb}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/d3_design_fb_ads">3d Design Facebook Ads</a></td>
+<td></td><td>{{d3_design_fb_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/graphic_design_fb">Graphic Design Facebook</a> </td>
+<td></td><td>{{gd_fb}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/graphic_design_fb_ads">Graphic Design Facebook Ads</a> </td>
+<td></td><td>{{graphic_design_fb_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/ux_ui_fb">UI & UX Design Facebook</a></td>
+<td></td><td> {{ux_ui_fb}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/uiux_design_fb_ads">UI & UX Design Facebook Ads</a></td>
+<td></td><td> {{uiux_design_fb_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/uiux_instagram">UI & UX Design Instagram</a></td><td></td>
+<td> {{uiux_instagram}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/uiux_insta_ads">UI & UX Design Instagram Ads</a></td><td></td>
+<td> {{uiux_insta_ads}}</td>
+</tr>
+
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/3d_design_lix">3d Design Linkedin (L)
+</a> </td><td></td><td>{{d3_lix}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/d3_design_lix_ads">3d Design Linkedin (L) Ads
+</a> </td><td></td><td>{{d3_design_lix_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/bd_design_lix">Brand Designers Linkedin (L)</a> </td>
+<td></td><td>{{bd_design_lix}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/brand_designers_lix_ads">Brand Designers Linkedin (L) Ads</a> </td>
+<td></td><td>{{brand_designers_lix_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/branding_consultant_lix">Branding Consultant Linkedin (L)</a> </td>
+<td></td><td>{{bc_lix}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/branding_consultant_lix_ads">Branding ConsultaLinkedin (L) Ads</a> </td>
+<td></td><td>{{branding_consultant_lix_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/graphic_design_lix">Graphic Design Linkedin (L)</a> </td>
+<td></td><td>{{gd_lix}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/graphic_design_lix_ads">Graphic Design Linkedin (L) Ads</a> </td>
+<td></td><td>{{graphic_design_lix_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/marketing_designer_lix">Marketing Designer Linkedin (L)</a> </td>
+<td></td><td>{{md_lix}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/marketing_designer_lix_ads">Marketing Designer Linkedin (L) Ads</a> </td>
+<td></td><td>{{marketing_designer_lix_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/uiux">UI & UX Design Linkedin (L)</a></td>
+<td></td><td> {{uiux}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/uiux_lix_ads">UI & UX Design Linkedin (L) Ads</a></td>
+<td></td><td> {{uiux_lix_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/visual_design_lix">Visual Design Linkedin (L)</a> </td>
+<td></td><td>{{vd_lix}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/visual_design_lix_ads">Visual Design Linkedin (L) Ads</a> </td>
+<td></td><td>{{visual_design_lix_ads}}</td></tr>
+
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/3d_design_phantom">3d Design Linkedin (P)</a> </td>
+<td></td><td>{{d3_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/d3_design_phantom_ads">3d Design Linkedin (P) Ads</a> </td>
+<td></td><td>{{d3_design_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/bd_design_phantom">Brand Designers Linkedin (P)</a> </td>
+<td></td><td>{{bd_design_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/brand_designers_phantom_ads">Brand Designers Linkedin (P) Ads</a> </td>
+<td></td><td>{{brand_designers_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/branding_consultant_phantom">Branding Consultant Linkedin (P)</a> </td><td></td><td>{{bc_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/branding_consultant_phantom_ads">Branding Consultant Linkedin (P) Ads</a> </td><td></td><td>{{branding_consultant_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/graphic_design_phantom">Graphic Design Linkedin (P)</a> </td>
+<td></td><td>{{gd_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/graphic_design_phantom_ads">Graphic Design Linkedin (P) Ads</a> </td>
+<td></td><td>{{graphic_design_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/marketing_designer_phantom">Marketing Designer Linkedin (P)</a></td><td></td><td>{{md_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/marketing_designer_phantom_ads">Marketing Designer Linkedin (P) Ads</a></td><td></td><td>{{marketing_designer_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/uiux_phantom">UI & UX Design Linkedin (P)</a></td>
+<td></td><td> {{uiux_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/uiux_design_phantom_ads">UI & UX Design Linkedin (P) Ads</a></td>
+<td></td><td> {{uiux_design_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/visual_design_phantom">Visual Design Linkedin (P)</a> </td>
+<td></td><td>{{vd_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/visual_design_phantom_ads">Visual Design Linkedin (P) Ads</a> </td>
+<td></td><td>{{visual_design_phantom_ads}}</td></tr>
+
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/3d_design_twi">3d Design Twitter</a> </td>
+<td></td><td>{{d3_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/d3_design_twi_ads">3d Design Twitter Ads</a> </td>
+<td></td><td>{{d3_design_twi_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/branding_consultant_twi">Branding Consultant Twitter</a> </td>
+<td></td><td>{{bc_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/branding_consultant_twi_ads">Branding Consultant Twitter Ads</a> </td>
+<td></td><td>{{branding_consultant_twi_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/graphic_design_twi">Graphic Design Twitter</a> </td>
+<td></td><td>{{gd_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/graphic_design_twi_ads">Graphic Design Twitter Ads</a> </td>
+<td></td><td>{{graphic_design_twi_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/marketing_designer_twi">Marketing Designer Twitter</a> </td>
+<td></td><td>{{md_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/marketing_designer_twi_ads">Marketing Designer Twitter Ads</a> </td>
+<td></td><td>{{marketing_designer_twi_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/uxuidesign_twi">UI & UX Design Twitter</a></td>
+<td></td><td> {{uxuidesign_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/uiux_design_twi_ads">UI & UX Design Twitter Ads</a></td>
+<td></td><td> {{uiux_design_twi_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/visual_design_twi">Visual Design Twitter</a> </td>
+<td></td><td>{{vd_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/visual_design_twi_ads">Visual Design Twitter Ads</a> </td>
+<td></td><td>{{visual_design_twi_ads}}</td></tr>
+
+
+
+<tr style="visibility: hidden"><td>a </td><td> a</td></tr>
+<tr>
+<td style="padding-right: 10px;"><b><u><h6 style="color:black;">Expert Networks</h6></u></b></td></tr>
+
+<!-- <td><a href="https://spaced-data-center.herokuapp.com/accounts/tool_twi">Collaboration Tools Twitter</a></td><td></td>
+<td> {{tool_twi}}</td></tr> -->
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/micromenter_insta ">MicroMentor Instagram</a></td>
+<td></td><td> {{micromenter_insta}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/micromente_insta_ads ">MicroMentor Instagram Ads</a></td>
+<td></td><td> {{micromente_insta_ads}}</td></tr>
+
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/menterpass_insta ">MentorPass Instagram</a></td>
+<td></td><td> {{menterpass_insta}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/menterpass_insta_ads ">MentorPass Instagram Ads</a></td>
+<td></td><td> {{menterpass_insta_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/micromenter_twi ">MicroMentor Twitter</a></td>
+<td></td><td> {{micromenter_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/micromentor_twi_ads ">MicroMentor Twitter Ads</a></td>
+<td></td><td> {{micromentor_twi_ads}}</td></tr>
+
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/menterpass_twi ">MentorPass Twitter</a></td>
+<td></td><td> {{menterpass_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/mentorpass_twi_ads ">MentorPass Twitter Ads</a></td>
+<td></td><td> {{mentorpass_twi_ads}}</td></tr>
+
+
+
+<tr style="visibility: hidden"><td>a </td><td> a</td></tr>
+<tr>
+<td style=" padding-right: 10px;"><b><u><h6 style="color:black">Marketing</h6></u></b></td>
+</tr><tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/digital_marketing_fb">Digital Marketing Facebook</a></td>
+<td></td><td> {{digi_fb}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/digital_marketing_fb_ads">Digital Marketing Facebook Ads</a></td>
+<td></td><td> {{digital_marketing_fb_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/dm_instagram">Digital Marketing Instagram</a></td><td></td>
+<td>{{digi_insta}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/digital_marketing_insta_ads">Digital Marketing Instagram Ads</a></td><td></td>
+<td>{{digital_marketing_insta_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/digital_marketing">Digital Marketing Linkedin (L)</a></td><td></td>
+<td> {{dm}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/digital_marketing_lix_ads">Digital Marketing Linkedin (L) Ads</a></td><td></td>
+<td> {{digital_marketing_lix_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/digital_marketing_phantom">Digital Marketing Linkedin (P)</a></td>
+<td></td><td> {{dm_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/digital_marketing_phantom_ads">Digital Marketing Linkedin (P) Ads</a></td>
+<td></td><td> {{digital_marketing_phantom_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/dmar_twi">Digital Marketing Twitter</a></td>
+<td></td><td> {{dmar_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/digital_marketing_twi_ads">Digital Marketing Twitter Ads</a></td>
+<td></td><td> {{digital_marketing_twi_ads}}</td></tr>
+
+
+
+<tr style="visibility: hidden"><td>a </td><td> a</td></tr>
+<tr>
+<td style="padding-right: 10px;"><b><u><h6 style="color:black;">Product Strategy</h6></u></b></td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/pm_lix">Product/Market fit Linkedin (L)</a></td><td></td>
+<td> {{pm_lix}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/pm_fit_lix_ads">Product/Market fit Linkedin (L) Ads</a></td><td></td>
+<td> {{pm_fit_lix_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/pm_phantom">Product/Market fit Linkedin (P)</a></td><td></td>
+<td> {{pm_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/pm_fit_phantom_ads">Product/Market fit Linkedin (P) Ads</a></td><td></td>
+<td> {{pm_fit_phantom_ads}}</td></tr>
+
+
+<tr style="visibility: hidden"><td>a </td><td> a</td></tr>
+<tr><td style="margin-bottom: 10px;padding-right: 10px;" ><b><u><h6 style="color:black;">Software Development</h6></u></b></td></tr>
+
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/sd_fb">Software Development Facebook</a> </td>
+<td></td><td>{{sd_fb}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/software_development_fb_ads">Software Development Facebook Ads</a> </td>
+<td></td><td>{{software_development_fb_ads}}</td></tr>
+
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/mobile_dev_lix">Mobile Development Linkedin (L)</a> </td>
+<td></td><td>{{mobile}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/mobile_development_lix_ads">Mobile Development Linkedin (L) Ads</a> </td>
+<td></td><td>{{mobile_development_lix_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/software">Software Development Linkedin (L)</a> </td>
+<td></td><td>{{sw}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/software_development_lix_ads">Software Development Linkedin (L) Ads</a> </td>
+<td></td><td>{{software_development_lix_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/Web_dev">Web Development Linkedin (L)</a> </td>
+<td></td><td>{{web}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/web_development_lix_ads">Web Development Linkedin (L) Ads</a> </td>
+<td></td><td>{{web_development_lix_ads}}</td></tr>
+
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/mobile_dev_phantom">Mobile Development Linkedin (P)</a> </td>
+<td></td><td>{{mobile_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/mobile_development_phantom_ads">Mobile Development Linkedin (P) Ads</a> </td>
+<td></td><td>{{mobile_development_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/software_dev_phantom">Software Development Linkedin (P)</a> </td>
+<td></td><td>{{sw_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/software_development_phantom_ads">Software Development Linkedin (P) Ads</a> </td>
+<td></td><td>{{software_development_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/web_dev_phantom_display">Web Development Linkedin (P)</a> </td>
+<td></td><td>{{web_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/web_development_phantom_ads">Web Development Linkedin (P) Ads</a> </td>
+<td></td><td>{{web_development_phantom_ads}}</td></tr>
+
+
+
+
+<tr style="visibility: hidden"><td>a </td><td> a</td></tr>
+<tr><td style="margin-bottom: 10px;padding-right: 10px;" ><b><u><h6 style="color:black;">Venture Funding</h6></u></b></td></tr>
+
+
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/angle_investor_fb">Angel Investor Facebook</a></td><td></td><td> {{ai_fb}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/angle_investor_fb_ads">Angel Investor Facebook Ads</a></td><td></td><td>{{angle_investor_fb_ads}}</td></tr>
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/business_angle_fb">Business Angel Facebook</a></td><td></td><td> {{ba_fb}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/business_angle_fb_ads">Business Angel Facebook Ads</a></td><td></td><td> {{business_angle_fb_ads}}</td></tr>
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/pitchdesk_fb">Pitchdeck Facebook</a></td><td></td><td> {{pd_fb}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/pitchdesk_fb_ads">Pitchdeck Facebook Ads</a></td><td></td><td> {{pitchdesk_fb_ads}}</td></tr>
+
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/private_investor_fb">Private Investor Facebook</a></td><td></td><td> {{pi_fb}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/private_investor_fb_ads">Private Investor Facebook Ads</a></td><td></td><td> {{private_investor_fb_ads}}</td></tr>
+
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/venture_capital_fb">Venture Capital Facebook</a></td><td></td><td> {{vc_fb}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/venture_capital_fb_ads">Venture Capital Facebook Ads</a></td><td></td><td> {{venture_capital_fb_ads}}</td></tr>
+
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/angle_investor_lix">Angel Investor Linkedin (L)</a></td>
+<td></td><td> {{ani_lix}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/angle_investor_lix_ads">Angel Investor Linkedin (L) Ads</a></td>
+<td></td><td> {{angle_investor_lix_ads}}</td></tr>
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/fundraising_lix">Fundraising Linkedin (L)</a></td>
+<td></td><td> {{fr_lix}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/fundraising_lix_ads">Fundraising Linkedin (L) Ads</a></td>
+<td></td><td> {{fundraising_lix_ads}}</td></tr>
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/private_investor_lix">Private Investor Linkedin (L)</a></td>
+<td></td><td> {{pi_lix}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/private_investor_lix_ads">Private Investor Linkedin (L) Ads</a></td>
+<td></td><td> {{private_investor_lix_ads}}</td></tr>
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/seed_capital_lix">Seed Capital Linkedin (L)</a></td>
+<td></td><td> {{sc_lix}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/seed_capital_lix_ads">Seed Capital Linkedin (L) Ads</a></td>
+<td></td><td> {{seed_capital_lix_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/venture_capital_lix">Venture Capital Linkedin (L)</a> </td>
+<td></td><td>{{vnf_lix}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/venture_capital_lix_ads">Venture Capital Linkedin (L) Ads</a> </td>
+<td></td><td>{{venture_capital_lix_ads}}</td></tr>
+
+
+
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/angle_investor_phantom">Angel Investor Linkedin (P)</a></td>
+<td></td><td> {{angle_phantom}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/angle_investor_phantom_ads">Angel Investor Linkedin (P) Ads</a></td>
+<td></td><td> {{angle_investor_phantom_ads}}</td></tr>
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/fundraising_phantom">Fundraising Linkedin (P)</a></td>
+<td></td><td> {{fr_phantom}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/fundraising_phantom_ads">Fundraising Linkedin (P) Ads</a></td>
+<td></td><td> {{fundraising_phantom_ads}}</td></tr>
+<!-- <tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/private_investor_phantom">Private Investor Linkedin (P)</a></td>
+<td></td><td> {{pi_phantom}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/private_investor_phantom_ads">Private Investor Linkedin (P) Ads</a></td>
+<td></td><td> {{private_investor_phantom_ads}}</td></tr> -->
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/seed_capital_phantom">Seed Capital Linkedin (P)</a></td>
+<td></td><td> {{sc_phantom}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/seed_capital_phantom_ads">Seed Capital Linkedin (P) Ads</a></td>
+<td></td><td> {{seed_capital_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/venture_capital_phantom">Venture Capital Linkedin (P)</a> </td>
+<td></td><td>{{vc_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/venture_capital_phantom_ads">Venture Capital Linkedin (P) Ads</a> </td>
+<td></td><td>{{venture_capital_phantom_ads}}</td></tr>
+
+
+
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/angle_investor_twi">Angel Investor Twitter</a></td><td></td><td> {{angel_twi}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/angle_investor_twi_ads">Angel Investor Twitter Ads</a></td><td></td><td> {{angle_investor_twi_ads}}</td></tr>
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/business_angle_twi">Business Angel Twitter</a></td><td></td><td> {{ba_twi}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/business_angle_twi_ads">Business Angel Twitter Ads</a></td><td></td><td> {{business_angle_twi_ads}}</td></tr>
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/fundraising_twi">Fundraising Twitter</a></td><td></td><td> {{fr_twi}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/fundraising_twi_ads">Fundraising Twitter Ads</a></td><td></td><td> {{fundraising_twi_ads}}</td></tr>
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/pitchdesk_twi">Pitchdeck Twitter</a></td><td></td><td> {{pd_twi}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/pitchdesk_twi_ads">Pitchdeck Twitter Ads</a></td><td></td><td> {{pitchdesk_twi_ads}}</td></tr>
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/private_investor_twi">Private Investor Twitter</a></td><td></td><td> {{pi_twi}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/private_investor_twi_ads">Private Investor Twitter Ads</a></td><td></td><td> {{private_investor_twi_ads}}</td></tr>
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/seed_capital_twi">Seed Capital Twitter</a></td><td></td><td> {{sc_twi}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/seed_capital_twi_ads">Seed Capital Twitter Ads</a></td><td></td><td> {{seed_capital_twi_ads}}</td></tr>
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/venture_capital_twi">Venture Capital Twitter</a></td><td></td><td> {{vc_twi}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/venture_capital_twi_ads">Venture Capital Twitter Ads</a></td><td></td><td> {{venture_capital_twi_ads}}</td></tr>
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/web3_fund_twi">Web3 Fund Twitter</a></td><td></td><td> {{wf_twi}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/web3_fund_twi_ads">Web3 Fund Twitter Ads</a></td><td></td><td> {{web3_fund_twi_ads}}</td></tr>
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/web3_grants_twi">Web3 Grants Twitter</a></td><td></td><td> {{wg_twi}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/web3_grants_twi_ads">Web3 Grants Twitter Ads</a></td><td></td><td> {{web3_grants_twi_ads}}</td></tr>
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/web3_investor_twi">Web3 Investor Twitter</a></td><td></td><td> {{wi_twi}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/web3_investor_twi_ads">Web3 Investor Twitter Ads</a></td><td></td><td> {{web3_investor_twi_ads}}</td></tr>
+<tr><td> <a href="https://spaced-data-center.herokuapp.com/accounts/whitepaper_twi">Whitepaper Twitter</a></td><td></td><td> {{wp_twi}}</td><td></td>
+<td> <a href="https://spaced-data-center.herokuapp.com/accounts/whitepaper_twi_ads">Whitepaper Twitter Ads</a></td><td></td><td> {{whitepaper_twi_ads}}</td></tr>
+
+
+
+
+<tr style="visibility: hidden"><td>a </td><td> a</td></tr>
+<tr>
+<td style=" padding-right: 10px;"><b><u><h6 style="color:black"> Web 3</h6></u></b></td>
+</tr><tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/block_fb">Blockchain Facebook</a></td>
+<td></td><td> {{block_fb}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/blockchain_fb_ads">Blockchain Facebook Ads</a></td>
+<td></td><td> {{blockchain_fb_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/blockchain">Blockchain Linkedin (L)</a></td>
+<td></td><td> {{block_lix}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/blockchain_lix_ads">Blockchain Linkedin (L) Ads</a></td>
+<td></td><td> {{blockchain_lix_ads}}</td></tr>
+<!-- <tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/dao_lix">DAO Linkedin (L)</a></td>
+<td></td><td> {{dao_lix}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/dao_lix_ads">DAO Linkedin (L) Ads</a></td> -->
+<!-- <td></td><td> {{dao_lix_ads}}</td></tr> -->
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/dapp_lix">DAPP Linkedin (L)</a></td>
+<td></td><td> {{dapp_lix}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/dapp_lix_ads">DAPP Linkedin (L) Ads</a></td>
+<td></td><td> {{dapp_lix_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/defi_lix">DeFi Linkedin (L)</a></td>
+<td></td><td> {{defi_lix}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/defi_lix_ads">DeFi Linkedin (L) Ads</a></td>
+<td></td><td> {{defi_lix_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/nft_lix">NFT Linkedin (L)</a></td>
+<td></td><td> {{nft_lix}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/nft_lix_ads">NFT Linkedin (L) Ads</a></td>
+<td></td><td> {{nft_lix_ads}}</td></tr>
+<!-- <tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/yf_lix">Yield Farming Linkedin (L)</a></td>
+<td></td><td> {{yf_lix}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/yield_farming_lix_ads">Yield Farming Linkedin (L) Ads</a></td>
+<td></td><td> {{yield_farming_lix_ads}}</td></tr> -->
+
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/blockchain_phantom">Blockchain Linkedin (P)</a></td>
+<td></td><td> {{block_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/blockchain_phantom_ads">Blockchain Linkedin (P) Ads</a></td>
+<td></td><td> {{blockchain_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/dao_phantom">DAO Linkedin (P)</a></td>
+<td></td><td> {{dao_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/dao_phantom_ads">DAO Linkedin (P) Ads</a></td>
+<td></td><td> {{dao_phantom_ads}}</td></tr>
+<!-- <tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/dapp_phantom">DAPP Linkedin (P)</a></td>
+<td></td><td> {{dapp_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/dapp_phantom_ads">DAPP Linkedin (P) Ads</a></td> -->
+<!-- <td></td><td> {{dapp_phantom_ads}}</td></tr> -->
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/defi_phantom">DeFi Linkedin (P)</a></td>
+<td></td><td> {{defi_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/defi_phantom_ads">DeFi Linkedin (P) Ads</a></td>
+<td></td><td> {{defi_phantom_ads}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/nft_phantom">NFT Linkedin (P)</a></td>
+<td></td><td> {{nft_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/nft_phantom_ads">NFT Linkedin (P) Ads</a></td>
+<td></td><td> {{nft_phantom_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/yf_phantom">Yield Farming Linkedin (P)</a></td>
+<td></td><td> {{yf_phantom}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/yield_farming_phantom_ads">Yield Farming Linkedin (P) Ads</a></td>
+<td></td><td> {{yield_farming_phantom_ads}}</td></tr>
+
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/defi_twi">DeFi Twitter</a></td>
+<td></td><td> {{defi_twi}}</td><td></td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/defi_twi_ads">DeFi Twitter Ads</a></td>
+<td></td><td> {{defi_twi_ads}}</td></tr>
+
+
+
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/wonderverse">Discord (Wonderverse)</a></td>
+<td></td><td> {{wonder}}</td></tr>
+<tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/Blank">Discord (Blank Foundation)</a></td>
+<td></td><td> {{blank}}</td></tr>
+
+
+<tr style="visibility: hidden"><td><a href="https://spaced-data-center.herokuapp.com/accounts/yf_phantom">Yield Farming Linkedin (P)</a></td>
+<td></td><td> {{yf_phantom}}</td>
+<td><a href="https://spaced-data-center.herokuapp.com/accounts/yield_farming_phantom_ads">Yield Farming Linkedin (P) Ads</a></td>
+<td></td><td> {{yield_farming_phantom_ads}}</td></tr>
+
+
+
+<!-- <tr><td><a href="https://spaced-data-center.herokuapp.com/accounts/twitter_web3">Twitter</a></td>
+<td></td><td> {{twitter3}}</td></tr>
+ -->
+
+
+</table>
+
+
+    {% else %}
+
+        <h5><b>Welcome to the Spaced Database.</b></h5>
+
+    {% endif %}
+
+{% endblock %}
+
+

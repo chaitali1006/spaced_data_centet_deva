@@ -68,13 +68,12 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'app.wsgi.application'
+WSGI_APPLICATION = 'app.wsgi.application'
 
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = os.path.join(CONTENT_DIR, 'tmp/emails')
 EMAIL_HOST_USER = 'test@example.com'
 DEFAULT_FROM_EMAIL = 'test@example.com'
-
 
 DATABASES = {
     'default': {
@@ -86,7 +85,6 @@ DATABASES = {
         
     }
 }
-
 
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=600)

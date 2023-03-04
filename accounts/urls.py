@@ -30,7 +30,7 @@ from .views import (
         ceo_lix,cio_lix,coo_lix,cto_lix,doo_lix,gom_lix,hom_lix,hos_lix,md_lix,ceo_lix_ads,cio_lix_ads,coo_lix_ads,cto_lix_ads,gom_lix_ads,hom_lix_ads,hos_lix_ads,md_lix_ads,doo_lix_ads,
 
         d3_animation_fb_ads, d3_modeling_fb_ads, blogging_fb_ads, content_marketing_fb_ads,email_marketing_fb_ads,figma_design_fb_ads, graphic_design_fb_ads, infographics_fb_ads,marketing_video_fb_ads,poadcasting_fb_ads, instagram_marketing_fb_ads,social_media_marketing_fb_ads,tiktok_marketing_fb_ads,video_marketing_fb_ads,youtube_marketing_fb_ads,
-        d3_animation_fb,d3_modeling_fb,blogging_fb,content_marketing_fb,email_marketing_fb,figma_design_fb,graphic_design_fb,infographics_fb,marketing_video_fb,poadcasting_fb,instagram_marketing_fb,social_media_marketing_fb,tiktok_marketing_fb,video_marketing_fb,youtube_marketing_fb,
+        d3_animation_fb,d3_modeling_fb,blogging_fb,content_marketing_fb,email_marketing_fb,figma_design_fb,graphic_design_fb,infographics_fb,marketing_video_fb,poadcasting_fb,instagram_marketing_fb,social_media_marketing_fb,tiktok_marketing_fb,video_marketing_fb,youtube_marketing_fb,graph_list_2023
 
         
 )
@@ -43,7 +43,7 @@ urlpatterns = [
 
     path('marketing_list/', marketing_list, name='marketing_list'),
     path('customer_list/', customer_list, name='customer_list'),
-
+    path('graph_list_2023/', graph_list_2023, name='graph_list_2023'),
     path('d3_animation_fb_ads/',d3_animation_fb_ads,name='d3_animation_fb_ads'),
     path('d3_modeling_fb_ads/',d3_modeling_fb_ads,name='d3_modeling_fb_ads'),
     path('blogging_fb_ads/',blogging_fb_ads,name='blogging_fb_ads'),

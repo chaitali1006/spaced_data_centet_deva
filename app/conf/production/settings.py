@@ -63,7 +63,7 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'app.wsgi.application'
+WSGI_APPLICATION = 'app.wsgi.application'
 
 
 
@@ -78,17 +78,16 @@ EMAIL_PORT = 465
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'talk_data',
         'USER': 'admin',
         'PASSWORD': 'admin@talk',
-        'HOST':'localhost'
         
     }
 }
+
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)

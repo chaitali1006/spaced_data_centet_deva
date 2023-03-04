@@ -1,4 +1,3 @@
-
 {% load static %}
 {% load bootstrap4 %}
 {% load i18n %}
@@ -41,21 +40,17 @@
                     <!-- <a class="nav-link" href="{% url 'accounts:log_out' %}">{% trans 'Graph' %}</a> -->
                 </li>
                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'accounts:display_count' %}">{% trans '2022' %}</a>
+                </li>
+                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'accounts:marketing_list' %}">{% trans 'Marketing 2023' %}</a>
                 </li>
                  <li class="nav-item">
                     <a class="nav-link" href="{% url 'accounts:customer_list' %}">{% trans 'Customers 2023' %}</a>
                 </li>
                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'accounts:display_count' %}">{% trans 'Data 2022' %}</a>
+                    <a class="nav-link" href="{% url 'accounts:graph_list' %}">{% trans 'Data Graphs' %}</a>
                 </li>
-                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'accounts:graph_list' %}">{% trans 'Graphs 2022' %}</a>
-                </li>
-
-		<li class="nav-item">
-                    <a class="nav-link" href="{% url 'accounts:graph_list_2023' %}">{% trans 'Graphs 2023' %}</a>
-		</li>
 
             {% else %}
                 <li class="nav-item">
@@ -78,7 +73,7 @@
 
     {% block content %}
         No content.
-    {% endblock %}
+Marke    {% endblock %}
 
 </div>
 
